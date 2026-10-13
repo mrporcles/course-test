@@ -103,19 +103,4 @@ In practice, you'll rarely need to register `PropertySourcesPlaceholderConfigure
 
 You'd only need to configure one manually if you're still on Spring 4.2 or earlier, or if you specifically want to control how it works — for instance, to have it ignore system environment variables or system properties when resolving placeholders.
 
-## Recap
-
-- The container lifecycle has three phases: initialization (beans created, dependencies injected), usage (beans available for business logic), and destruction (beans released for garbage collection).
-- Initialization itself splits into step A (load and process bean definitions) and step B (actually create and initialize beans, covered in the next lesson).
-- Step A only produces *definitions* — a `BeanFactory` mapping bean IDs to bean definitions — with no instances created yet.
-- `BeanFactoryPostProcessor` is an extension point that runs after definitions are loaded but before any bean is instantiated, letting you modify any bean's definition.
-- `PropertySourcesPlaceholderConfigurer` — the mechanism that resolves `@Value("${...}")` placeholders — is a concrete, built-in example of a `BeanFactoryPostProcessor`, and Spring Boot (or Spring 4.3+) typically registers it for you automatically.
-- A custom `BeanFactoryPostProcessor` must be defined via a `static` `@Bean` method, since it needs to run before every other bean in the context.
-
-## Check your understanding
-
-1. What exactly does a `BeanFactoryPostProcessor` operate on, and why is it safe for it to modify anything it wants at that point in the lifecycle?
-2. Why must a `@Bean` method that returns a `BeanFactoryPostProcessor` be declared `static`?
-3. If you're on a recent version of Spring Boot, do you need to manually register a `PropertySourcesPlaceholderConfigurer` to use `@Value("${...}")`? Why or why not?
-
 The next lesson continues the initialization phase with step B — what actually happens when Spring creates and wires up each bean instance.

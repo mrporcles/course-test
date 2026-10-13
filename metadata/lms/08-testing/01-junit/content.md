@@ -79,18 +79,4 @@ class StandardTests {
 
 Every import comes from `org.junit.jupiter` — that's the detail to watch for. `@BeforeAll` replaces `@BeforeClass`, `@BeforeEach` replaces `@Before`, `@Disabled` replaces `@Ignore`, and `@Test` itself hasn't changed its name at all, just its package — which is exactly the kind of subtle mismatch that causes the mixed-imports gotcha above. Make sure you're always importing `@Test` from `org.junit.jupiter.api`, not the old `org.junit` package.
 
-## Recap
-
-- Testing is meant to be routine, not an afterthought — this whole module is built around making that practical with Spring.
-- JUnit 5 splits into three components: the Platform (runs tests), Jupiter (the API you write against), and Vintage (runs old JUnit 3/4 tests).
-- Most JUnit 4 lifecycle annotations have direct JUnit 5 replacements: `@Before`→`@BeforeEach`, `@BeforeClass`→`@BeforeAll`, `@After`→`@AfterEach`, `@AfterClass`→`@AfterAll`, `@Ignore`→`@Disabled`.
-- JUnit 5 also adds genuinely new annotations like `@DisplayName`, `@Nested`, and `@ParameterizedTest`.
-- JUnit 5 silently ignores JUnit 4 annotations rather than failing to compile — always double-check your imports come from `org.junit.jupiter`.
-
-## Check your understanding
-
-1. What are the three components JUnit 5 is split into, and what is each one responsible for?
-2. If a test class accidentally imports `@Before` from `org.junit` instead of `@BeforeEach` from `org.junit.jupiter.api`, what would you actually observe when running the test — a compile error, or something else?
-3. Which JUnit 5 annotation would you reach for to temporarily skip a test, and which JUnit 4 annotation does it replace?
-
 Now that JUnit 5 itself is covered, the next lesson puts it together with Spring to write real integration tests.

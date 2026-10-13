@@ -1,0 +1,15 @@
+{
+  "id": "spring-essentials-modernized-more-java-config-quiz",
+  "slug": "spring-essentials-more-java-config-quiz-modernized",
+  "title": "Quiz: Check Your Understanding",
+  "status": "live",
+  "type": "article",
+  "duration": 600,
+  "entitlements": [
+    "auth"
+  ],
+  "settings": {
+    "manualCompletion": true,
+    "completionCode": "spring-morejavaconfig"
+  }
+}

@@ -126,19 +126,4 @@ Component scanning was already enabled in an earlier to-do, but that alone doesn
 
 The final to-do calls a method expected to throw an exception — specifically, a lookup by credit card number against an empty test database, which is expected to throw a `DataAccessException`. Because the after-throwing advice matches that exception type, running this test should produce the green bar *and* a warning line in the console coming from the exception-handling aspect's `logger.warn` call. Running it confirms both.
 
-## Recap
-
-- An `@Aspect`-annotated class becomes a Spring-managed aspect the moment it's also annotated `@Component` and picked up by component scanning — `@EnableAspectJAutoProxy` is what makes Spring actually build the proxies at runtime.
-- Choosing an advice type is a matter of matching the requirement's shape: log something before a method runs → `@Before`; time or wrap an entire invocation → `@Around`; react to a specific exception type → `@AfterThrowing`.
-- Pointcut expressions built with the `execution` designator can combine a package pattern, a class name pattern, and a method name pattern to precisely target a family of repository methods without hardcoding every class.
-- `@Around` advice must call `proceed()` on the `ProceedingJoinPoint` and return its result — skipping that call means the target method never runs at all.
-- `@AfterThrowing`'s `throwing` attribute narrows the match to a specific exception type and gives the advice access to the actual exception instance, the same way `@AfterReturning`'s `returning` attribute works for return values.
-- Because these aspects have side effects (console output) rather than return values a test can easily assert on, verifying them means checking the console output directly, not just the test's pass/fail status.
-
-## Check your understanding
-
-1. Why does the pointcut expression `execution(* rewards.internal.*.*Repository.find*(..))` correctly match `JdbcAccountRepository`, `JdbcRestaurantRepository`, and `JdbcRewardRepository` without listing any of them by name?
-2. In the timing advice, what would happen to the timer if the `monitor.stop()` call were placed inside the `try` block instead of the `finally` block, and the target method threw an exception?
-3. Why can't the after-throwing advice's pointcut simply name `DataAccessException` directly inside the `execution(...)` expression string?
-
-The next lesson moves into a new module: how to actually test Spring applications, starting with JUnit 5.
+Next up is the module quiz, which checks your understanding of AOP before the course moves on to testing Spring applications with JUnit 5.

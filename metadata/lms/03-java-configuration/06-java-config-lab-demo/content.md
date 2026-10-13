@@ -148,18 +148,4 @@ The final to-do points to an existing class, `RewardNetworkImplTests`, which tes
 
 Running the completed test produces a green bar, which confirms something meaningful: the reward network is genuinely delegating to the repositories configured in to-do 4, and those repositories are pulling real data out of the data source configured in to-do 6 — the whole chain, from application context down to the embedded database, works correctly.
 
-## Recap
-
-- Turning a plain class into a configuration class just takes `@Configuration`; bean methods are added with `@Bean`.
-- Constructor injection is the way for a configuration class to receive a dependency — like a `DataSource` — that's defined somewhere else, without needing `@Autowired` when there's only one constructor.
-- Method invocation between `@Bean` methods (calling one bean method from inside another) is a normal, working way to wire dependencies together in Java configuration.
-- `@Import` combines an infrastructure configuration class with an application configuration class so both contribute to the same application context.
-- Bootstrapping the context inside `@BeforeEach` and calling `getBean` by type is the same explicit pattern introduced in the "The Application Context" lesson — and a passing test here proves the entire configuration, not just a single class, is correct.
-
-## Check your understanding
-
-1. Why didn't this lab need an `@Autowired` annotation on the constructor of the application configuration class?
-2. What's the difference between how `accountRepository()` gets its `DataSource` and how `rewardNetwork()` gets its repositories?
-3. Why does a green bar on the final test prove more than just "the reward network class works" — what else does it prove?
-
-With the fundamentals of Java-based configuration now practiced hands-on, the next lesson goes deeper: externalizing properties, and the two other topics that round out this module.
+With the fundamentals of Java-based configuration now practiced hands-on, the module quiz is next, where you can check your understanding of what you have learned. The next module then covers externalizing properties, profiles, and SpEL.

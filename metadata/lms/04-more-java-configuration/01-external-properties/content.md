@@ -128,17 +128,4 @@ public class DbConfig {
 
 The dollar-sign syntax, `${...}`, tells Spring to resolve that expression against the environment. Here, four plain `String` arguments are injected — `db.driver`, `db.url`, `db.user`, and `db.password` — with no explicit reference to the `Environment` object anywhere in the method signature. Spring resolves each one before the method is even called, and the method body is left to just use the plain string values as if they'd always been there.
 
-## Recap
-
-- Hard-coding configuration values (URLs, credentials, and similar) forces you to edit and recompile code just to change them — externalize them instead.
-- Spring's `Environment` abstraction reads properties from JVM system properties, system environment variables, and property files, in that order of precedence for what's available automatically.
-- Custom property files aren't picked up automatically — register them as property sources with `@PropertySource`, using the `classpath:`, `file:`, or `http:` prefix.
-- You can access environment values either by injecting `Environment` directly and calling `getProperty(...)`, or with `@Value("${key}")` for a single value at the point where you need it.
-
-## Check your understanding
-
-1. What's the specific downside of hard-coding a database URL and password directly inside a `@Bean` method?
-2. What are the three prefixes `@PropertySource` supports for locating a property file, and what does each one mean?
-3. Give two different ways to read the value of a property called `db.url` inside a configuration class.
-
 Grouping related beans so that only some of them are active in a given environment is the natural next step — and that's exactly what Spring profiles, covered in the next lesson, are for.

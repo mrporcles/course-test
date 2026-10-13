@@ -1,0 +1,13 @@
+{
+  "id": "spring-essentials-modernized-jdbc-quiz",
+  "slug": "spring-essentials-jdbc-quiz-modernized",
+  "title": "Quiz: Check Your Understanding",
+  "status": "live",
+  "type": "article",
+  "duration": 600,
+  "entitlements": ["auth"],
+  "settings": {
+    "manualCompletion": true,
+    "completionCode": "spring-jdbc"
+  }
+}

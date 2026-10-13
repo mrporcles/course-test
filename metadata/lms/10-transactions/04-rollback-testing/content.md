@@ -83,17 +83,3 @@ public class RewardNetworkTest {
 Here, `@Transactional` is applied at the class level, making every test method in the class transactional (and therefore rolled back by default). `@Commit` on `testRewardAccountFor` overrides just that one method, so its transaction is committed at the end instead of rolled back — useful for the occasional test where you actually want the data to persist.
 
 That closes out the transaction management topics: declarative transaction management with `@Transactional` (the "Spring Transaction Management" lesson), overriding propagation (the "Configure Transaction Propagation" lesson), and now the transaction attributes and testing support covered here.
-
-## Recap
-
-- By default, a transaction only rolls back when a `RuntimeException` is thrown; checked exceptions from third-party libraries otherwise let the transaction commit.
-- `rollbackFor` and `noRollbackFor` on `@Transactional` let you override that default in either direction, and both accept multiple exception classes.
-- `@Transactional` on a test method or test class starts a transaction before the test and always rolls it back afterward — no manual database cleanup required.
-- The test framework only rolls back the outermost transaction; an independent transaction started inside the test (such as one using `REQUIRES_NEW`) is unaffected and commits normally.
-- `@Commit` overrides the default test rollback for a specific test method, committing its transaction instead.
-
-## Check your understanding
-
-1. A method throws a checked exception from a third-party library and has no `rollbackFor`/`noRollbackFor` overrides. Does the transaction commit or roll back, and why?
-2. You annotate a test class with `@Transactional` so every test rolls back automatically. What annotation would you add to one specific test method to make it commit instead?
-3. Inside a `@Transactional` test, a method call uses `REQUIRES_NEW` and commits its own independent transaction. Will that data still be there after the test method finishes and the test's own transaction rolls back?

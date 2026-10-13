@@ -142,18 +142,4 @@ And as mentioned at the start of this lesson, SpEL is widely used across the Spr
 
 Each of these may add their own implicit references — for example, Spring Security lets you access `principal`, representing the current user, inside a SpEL expression. That's a topic for when Spring Security itself is covered later on; for now, the important thing is knowing that the core set of implicit variables (`environment`, `systemProperties`, `systemEnvironment`, and bean names) can be extended by whichever other Spring projects you bring in.
 
-## Recap
-
-- Property values are easily externalized using Spring's Environment abstraction (the "Use External Properties" lesson).
-- Profiles are used to group sets of beans so only some are active in a given situation (the "Spring Profiles" lesson).
-- SpEL, introduced in this lesson, uses `#{...}` (as opposed to the plain `${...}` property syntax) to evaluate a full expression, including reaching into other Spring-managed beans by name.
-- Properties resolved through either syntax always come back as strings first; Spring converts them afterward, but you must cast explicitly if you want to operate on them *inside* the expression.
-- Default values are supported with `:` for `${...}` expressions and the Elvis operator `?:` for `#{...}` expressions.
-
-## Check your understanding
-
-1. What's the difference between `${daily.limit}` and `#{daily.limit}`, and why does only one of the two actually work as written?
-2. If `strategyBean` isn't recognized as one of SpEL's implicit variables, how does `#{strategyBean.keyGenerator}` still manage to resolve correctly?
-3. Why does `@Value("#{daily.limit * 2}")` fail, and what change would fix it?
-
-That closes out this module on Java-based configuration — externalized properties, profiles, and now SpEL. The next module moves on to annotation-based configuration and component scanning.
+That closes out this module on Java-based configuration — externalized properties, profiles, and now SpEL. Next up is the module quiz, where you can check your understanding of these topics before moving on to annotation-based configuration and component scanning.

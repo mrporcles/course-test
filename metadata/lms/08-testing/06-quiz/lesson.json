@@ -1,0 +1,15 @@
+{
+  "id": "spring-essentials-modernized-testing-quiz",
+  "slug": "spring-essentials-testing-quiz-modernized",
+  "title": "Quiz: Check Your Understanding",
+  "status": "live",
+  "type": "article",
+  "duration": 600,
+  "entitlements": [
+    "auth"
+  ],
+  "settings": {
+    "manualCompletion": true,
+    "completionCode": "spring-testing"
+  }
+}

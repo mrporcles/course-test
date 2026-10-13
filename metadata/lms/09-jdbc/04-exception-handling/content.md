@@ -60,18 +60,4 @@ This mapping isn't guesswork — Spring maintains an XML file (`sql-error-codes.
 
 Every one of these is unchecked, so they'll be thrown and bubble up the call hierarchy, but you get to decide where — and whether — to catch them.
 
-## Recap
-
-- Checked exceptions force every intermediate method to declare them; unchecked exceptions bubble up freely and get handled wherever makes sense.
-- Plain `SQLException` is too general, vendor-coupled, and checked — a poor match for clean application code.
-- Spring translates every `SQLException` it encounters into its own `DataAccessException` hierarchy, using a documented mapping of vendor-specific error codes to specific exception types.
-- `DataAccessException` and all its subtypes are unchecked, consistent across data access technologies (JDBC, JPA, Hibernate), and much more specific than a single generic exception.
-- This translation is exactly why the `JdbcTemplate` you've been using never required a `try`/`catch` block in your repositories — the template was handling and translating those `SQLException`s for you all along.
-
-## Check your understanding
-
-1. Why is `SQLException` a poor fit for application-level error handling, even setting aside the checked-vs-unchecked distinction?
-2. If two different database vendors return different vendor-specific error codes for "bad SQL grammar," what does Spring do to make sure both surface as the same `BadSqlGrammarException` type?
-3. Why does `DataAccessException` extend `RuntimeException` rather than `Exception`?
-
 Next up is a hands-on lab that puts everything from this JDBC module into practice: refactoring a repository built on plain JDBC over to `JdbcTemplate`, row mappers, and result set extractors.

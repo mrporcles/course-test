@@ -104,18 +104,4 @@ In this example, `schema.sql` and `load-data.sql` run before every test in the c
 
 By default, `@Sql` looks up a `DataSource` bean in the application context and runs its scripts against it. There's more to configure here — including how transactions and a custom transaction manager interact with `@Sql` — but that's revisited in a later module once transaction management itself has been introduced.
 
-## Recap
-
-- `@ActiveProfiles` activates one or more profiles for a test's application context, in place of the system-property approach used outside of tests.
-- A bean can be tied to a profile in Java config (`@Profile` on the `@Configuration` class or a `@Bean` method) or in annotation-based configuration (`@Profile` alongside a stereotype annotation like `@Repository`).
-- `@Sql` runs a SQL script against the test's `DataSource`, either before (default) or after a test method, and can be placed at the method or class level.
-- `@Sql` is repeatable, so a single method can run multiple scripts with different execution phases.
-- `@SqlConfig` controls what happens if a script fails and how its syntax is parsed (comment prefix, statement separator).
-
-## Check your understanding
-
-1. If a bean is annotated `@Profile("stub")` but a test only activates `@ActiveProfiles("jdbc")`, will that bean be part of the test's application context? Why or why not?
-2. How would you make one `@Sql` script run before a test method and a second one run after it, on the same test method?
-3. What's the default behavior when an `@Sql` script fails partway through, and which `@SqlConfig` option would you change to keep the test running anyway?
-
 The next lesson puts profiles and `@Sql` into practice together in a hands-on lab.

@@ -177,19 +177,4 @@ public class PropertyChangeTracker {
 
 `point.getSignature().getName()` gives you the method name that was called; `point.getArgs()` returns the arguments as an `Object[]`; and `point.getTarget()` (or `point.getProxy()`) gives you a reference back to the target or the proxy, respectively. In this example, `point.getTarget()` is concatenated into the log message, so the target's `toString()` is used; `SimpleCache.toString()` returns the bean name. Remember: you're executing *inside the aspect* here — not inside the proxy, and not inside the target — so these accessors are how you reach back out to either one.
 
-## Recap
-
-- The five core AOP terms: **join point** (a method call), **pointcut** (an expression selecting join points), **advice** (the code to run), **aspect** (advice + pointcut, the "what" and "where"), and **weaving** (applying aspects to your code).
-- A proxy stands in for your original object; an AOP proxy specifically adds behavior (like logging, security, or transactions) around your bean, transparently.
-- A minimal aspect needs `@Aspect` (AspectJ) plus `@Component` (Spring), an advice method annotated with something like `@Before`, and a pointcut expression string.
-- `@EnableAspectJAutoProxy` turns on Spring AOP's proxy-based weaving using AspectJ's configuration style — it does not switch to AspectJ's own bytecode weaver.
-- Only methods declared on the proxied interface are actually enhanced; implementation-only methods are invisible to a JDK proxy.
-- Add a `JoinPoint` parameter to an advice method to access the intercepted method's name, arguments, target, or proxy.
-
-## Check your understanding
-
-1. What's the difference between a pointcut and an advice, and how does an aspect relate the two?
-2. Why does `@EnableAspectJAutoProxy` not mean Spring is using AspectJ's bytecode weaver?
-3. If `DatabaseCache` implements `Cache` and also has an extra `setDataSource` method, why doesn't `setDataSource` trigger the `PropertyChangeTracker` advice — and would that change if Spring used a CGLIB proxy instead of a JDK proxy?
-
 You've now seen a pointcut expression in passing — `execution(void set*(*))` — without a full explanation of the syntax; the next lesson breaks down exactly how to read and write these expressions yourself.

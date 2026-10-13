@@ -1,0 +1,15 @@
+{
+  "id": "spring-essentials-modernized-aop-quiz",
+  "slug": "spring-essentials-aop-quiz-modernized",
+  "title": "Quiz: Check Your Understanding",
+  "status": "live",
+  "type": "article",
+  "duration": 600,
+  "entitlements": [
+    "auth"
+  ],
+  "settings": {
+    "manualCompletion": true,
+    "completionCode": "spring-aop"
+  }
+}

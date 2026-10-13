@@ -113,18 +113,4 @@ Same method, same shape: SQL statement first, followed by the values to bind. Th
 
 There's also an `execute` method available for DDL operations (like creating or dropping tables), but for the everyday work of inserting, updating, and deleting rows, `update` is the one method you need.
 
-## Recap
-
-- A `JdbcTemplate`-based repository takes the template through constructor injection and stores it in a field, since it's thread-safe and meant to be reused.
-- `queryForObject(sql, Type.class)` queries for a single simple value — a `Date`, `Long`, `Integer`, and so on — with no casting required.
-- The older `queryForInt()` / `queryForLong()` methods are deprecated and were removed in Spring 4.2; use `queryForObject` instead.
-- Bind variables work exactly like plain JDBC's `?` placeholders — pass the values, in order, as extra arguments to `queryForObject`.
-- `update()` is the single method for inserts, updates, and deletes, returning the number of rows modified; `execute()` is reserved for DDL operations.
-
-## Check your understanding
-
-1. Why doesn't `getCustomerCount()` in the example repository need a `try`/`catch` block, even though the underlying call could fail?
-2. If a query has two `?` placeholders, how do you tell `queryForObject` which values to bind to them, and in what order?
-3. Which single `JdbcTemplate` method would you use to both insert a new row and later delete it, and what does it return?
-
 The next lesson goes beyond simple types and looks at working with full result sets using callbacks like `RowMapper`.

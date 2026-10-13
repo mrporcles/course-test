@@ -97,19 +97,4 @@ After that, definitions get turned into actual beans. In Java config, Spring cal
 
 That's the end of the initialization step. Everything is now fully configured and ready to use.
 
-## Recap
-
-- Beans are created in dependency order; singleton beans are created eagerly by default (for fail-fast behavior) unless marked lazy.
-- After creation, each bean goes through bean-level post-processing, driven by registered `BeanPostProcessor`s.
-- `@PostConstruct` (and `@PreDestroy`) work because Spring registers a `CommonAnnotationBeanPostProcessor` that enables these JSR-250 annotations.
-- `BeanPostProcessor` has two methods, `postProcessBeforeInitialization` and `postProcessAfterInitialization`, both of which must return the bean (or a replacement) — forgetting to return it loses the bean.
-- A custom `BeanPostProcessor` must itself be registered as a Spring bean, via Java config or component scanning.
-- Java config and annotation-based configuration both go through the same overall lifecycle — bean detection, `BeanFactoryPostProcessor`s, instantiation and injection, then `BeanPostProcessor`s — they just get there by different mechanisms.
-
-## Check your understanding
-
-1. Why is it critical that both methods on `BeanPostProcessor` return an `Object`, and what happens if you forget to return the bean you were given?
-2. Which Spring-provided `BeanPostProcessor` is responsible for making `@PostConstruct` and `@PreDestroy` work, and what category of annotations does it enable?
-3. At what point in the lifecycle do `BeanFactoryPostProcessor`s run relative to `BeanPostProcessor`s, and what's the key difference in what each one has access to?
-
 Now that your beans are fully initialized, the next lesson looks at what happens when you actually start using them — and eventually, when the container shuts them down.

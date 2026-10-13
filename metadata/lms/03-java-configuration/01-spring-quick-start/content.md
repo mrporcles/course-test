@@ -161,18 +161,4 @@ When `SpringApplication.run(...)` builds the context, it initializes every compo
 
 Working through this example: `dataSource` has no dependencies, so it's created first. `accountRepository` depends on `dataSource`, which already exists, so it's created next. Finally, `transferService` depends on `accountRepository`, which is now available, so it's created last. Every one of these beans is given a unique id or name (matching the `@Bean` method's name by convention), so from outside the context you can retrieve any of them directly — `getBean("transferService")`, `getBean("accountRepository")`, or `getBean("dataSource")` — and each comes back fully configured and ready to use.
 
-## Recap
-
-- Spring separates application configuration from the application objects (beans) themselves.
-- `@Configuration` classes with `@Bean`-annotated factory methods are one way to provide that configuration, entirely in Java.
-- Dependencies between beans can be expressed either as a direct cross-reference method invocation, or as method arguments that Spring resolves for you — the two are equivalent.
-- Spring manages your application objects: it creates them in the correct dependency order, and ensures they're fully initialized before use.
-- Each bean is given a unique id/name, and can be retrieved from the context by name, by name and type, or by type alone.
-
-## Check your understanding
-
-1. In a `@Configuration` class, what are the two equivalent ways to inject one bean's dependency into another `@Bean` method?
-2. Given `dataSource()`, `accountRepository(DataSource)`, and `transferService(AccountRepository)` bean methods, in what order will Spring create these three beans, and why?
-3. Which form of `getBean(...)` should you prefer when there's only one bean of the type you need, and why?
-
 Next up is **The Application Context**, which looks more closely at creating the application context across different environments.

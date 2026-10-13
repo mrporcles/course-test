@@ -1,0 +1,1 @@
+A quiz covering transaction fundamentals, declarative management with Transactional, propagation, rollback rules and transactional tests. You need at least 80% to pass and receive the completion code.

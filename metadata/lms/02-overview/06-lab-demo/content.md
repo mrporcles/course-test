@@ -92,17 +92,4 @@ This is the same pattern from the "The Dependency Injection (DI) Container" less
 
 The actual test method, `testRewardForDining`, is initially marked `@Disabled`. Removing that annotation and running the test exercises the method you just wrote: it creates a `Dining` for a $100.00 charge, calls `rewardAccountFor`, and asserts that the returned `RewardConfirmation` and its contribution details are correct — including that the contribution amount comes out to $8.00 (8% of $100.00). Running it should produce a green bar, confirming the implementation matches the sequence diagram.
 
-## Recap
-
-- This lab used the reward network application without any Spring involved — pure Java objects, wired together by hand or via stubs.
-- `RewardNetworkImpl.rewardAccountFor(...)` delegates to the account, restaurant, and reward repositories in a specific sequence, defined by the lab's sequence diagram.
-- Because the implementation depends only on repository interfaces, `RewardNetworkImplTest` can supply stub implementations directly in its `setUp()` method — no container required.
-- Removing `@Disabled` and running `testRewardForDining` is how you verify your implementation actually matches the expected behavior.
-
-## Check your understanding
-
-1. In what order does `rewardAccountFor` call the account repository, the restaurant, and the reward repository, and what does each call return?
-2. Why doesn't the implementation of `rewardAccountFor` need to use the `new` operator anywhere?
-3. Why is `RewardNetworkImplTest` able to test `RewardNetworkImpl` without any Spring container present?
-
 In the next lesson, **Packaging and Integration Testing**, you'll shift gears to look at how Spring Boot's tooling can package an application and support integration testing.

@@ -125,19 +125,4 @@ Laid out next to each other, annotation-based and Java-based configuration offer
 
 At the end of the day, it's the same set of capabilities — the choice between them, covered next in the "Configuration Choices" lesson, comes down to which style fits your situation better.
 
-## Recap
-
-- Java-based configuration is explicit and externalized; annotation-based configuration is implicit and embedded directly in your business classes via `@Component`.
-- `@ComponentScan` tells Spring which base package (and sub-packages) to search for annotated classes.
-- `@Autowired` performs dependency injection at the constructor, method, or field level; constructor injection is preferred because it makes dependencies mandatory and immutable.
-- Use `required = false` or an `Optional<T>` parameter to make a dependency optional instead of mandatory.
-- Ambiguous autowiring by type is resolved with `@Qualifier`, or as a last resort, by matching the argument name against a bean name.
-- `@Value` injects environment/property values instead of beans; `@Lazy` defers bean creation until first use, but should be used sparingly.
-
-## Check your understanding
-
-1. Why is field injection discouraged even though `@Autowired` supports it?
-2. You have two beans implementing `AccountRepository` and get a `NoSuchBeanDefinitionException` mentioning two matching beans. What are two different ways to resolve this, and which one avoids the ambiguity altogether rather than just working around it?
-3. What's the practical risk of relying on Spring's auto-generated component names instead of naming your beans explicitly?
-
 Next up, the "Configuration Choices" lesson looks at how to actually choose between these two configuration styles — Java-based and annotation-based — in a real project.

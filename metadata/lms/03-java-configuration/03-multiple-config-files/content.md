@@ -179,19 +179,4 @@ public class ApplicationConfig {
 
 Now `accountService` simply declares a dependency on `AccountRepository` — which it actually needs — and Spring resolves that by calling the `accountRepository` bean method for you. No more forwarding an argument the calling bean has no real use for. If you ever find yourself passing a dependency into a bean method just so it can be relayed somewhere else, that's the signal to rethink the configuration, exactly like this.
 
-## Recap
-
-- A single, mixed configuration file becomes hard to maintain as an application grows — split it as it gets too big.
-- `@Import({A.class, B.class})` combines multiple configuration classes into one application context; whichever class you pass to `SpringApplication.run` becomes the entry point.
-- Separate **application** beans (business logic, services, repositories) from **infrastructure** beans (data sources and similar), since infrastructure tends to change between environments while application code doesn't.
-- An environment-specific infrastructure configuration class (test, production, ...) can `@Import` the shared application configuration.
-- Configuration classes can depend on each other's beans through ordinary constructor injection — every configuration class ultimately feeds the same application context.
-- Watch for "tramp data": if a bean method accepts an argument only to relay it to another bean method, pass the actual dependency you need instead.
-
-## Check your understanding
-
-1. Why is it good practice to keep infrastructure configuration (like a `DataSource`) separate from application configuration (like services and repositories)?
-2. If `ApplicationConfig` needs a `DataSource` that's defined in `InfrastructureConfig`, what two things need to be true for constructor injection to supply it correctly?
-3. What specifically makes a dependency "tramp data," and how do you fix it?
-
 With multiple configuration files in place, the next question is about how many instances of a given bean actually get created — which is exactly what the "Bean Scopes" lesson, on bean scopes, covers.

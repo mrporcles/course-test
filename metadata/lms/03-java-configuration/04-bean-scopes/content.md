@@ -102,19 +102,4 @@ Bean scopes are the last piece of a bigger picture built up over the last few le
 
 The application context, as covered across the "The Application Context" and "Handling Multiple Configurations" lessons, is the piece of the framework responsible for managing all of this — creating the beans, injecting the dependencies, and now, as this lesson has shown, deciding how many instances of each bean actually exist.
 
-## Recap
-
-- A bean's **scope** controls how many instances of it Spring creates, and when.
-- **Singleton** is the default: one instance, created once, cached in the context, and shared by every caller.
-- **Prototype** creates a brand-new instance every time the bean is requested.
-- Singleton beans are typically accessed by multiple threads at once — make them stateless, synchronize their state, or choose a different scope.
-- Web-specific scopes (`session`, `request`) create one instance per session or per request, respectively.
-- More specialized scopes exist (WebSocket, Refresh, Thread, and fully custom scopes), though they're outside the scope of this course.
-
-## Check your understanding
-
-1. If you don't put any `@Scope` annotation on a `@Bean` method, what scope does it get, and what does that mean in terms of how many objects get created?
-2. Why do singleton beans need special attention in a typical multi-threaded web application, and what are the two main ways to address that?
-3. What would you expect `context.getBean("someProtoypeBean") == context.getBean("someProtoypeBean")` to evaluate to, and why?
-
 The next module moves into a hands-on lab, putting everything from Java-based configuration — bean definitions, dependency injection, and application context creation — into practice on a real project.

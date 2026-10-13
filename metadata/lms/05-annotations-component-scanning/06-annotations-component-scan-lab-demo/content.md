@@ -57,18 +57,4 @@ The fix is exactly the lifecycle annotation from the "Adding Startup and Shutdow
 
 The mirror-image problem: `clearRestaurantCache()` needs to run when the application shuts down. A `System.out.println` gets added inside that method first, purely so its execution is visible in the console — then the method is annotated `@PreDestroy`. Re-running the test and inspecting the console confirms the cache-clearing message appears as the very last line of output, proving the destroy callback fired correctly when the context closed.
 
-## Recap
-
-- Migrating from Java configuration to annotations is mostly a mechanical, class-by-class process: replace each `@Bean` method with a stereotype annotation (`@Service`, `@Repository`, and so on) directly on the implementing class.
-- Whether `@Autowired` goes on a constructor, a setter, or nowhere at all depends entirely on how many constructors a class has and where the dependency actually needs to land.
-- `@ComponentScan` needs an explicit base package whenever your configuration class doesn't already sit above your components in the package hierarchy — otherwise nothing gets scanned.
-- `@PostConstruct` and `@PreDestroy` are the right tools whenever a bean needs to do setup or cleanup work that depends on injected dependencies already being in place.
-- Watching a test go red, then green, then red again is a genuinely useful technique for confirming that a lifecycle callback is actually firing where you think it is — rather than just assuming it.
-
-## Check your understanding
-
-1. Why did removing the `@Bean` methods in to-do 2 cause a `NoSuchBeanDefinitionException` rather than a compilation error?
-2. In to-do 8, moving the `DataSource` injection from the constructor to a setter broke the cache population. Why exactly — and what does that tell you about when `@PostConstruct` runs relative to setter injection?
-3. Why did `JdbcRestaurantRepository` need `@Autowired` explicitly on one of its constructors, while `RewardNetworkImpl` didn't need it at all?
-
-With annotation-based configuration now fully exercised, the "Initialization Phase (Part 1)" lesson turns to the bean lifecycle itself, starting with the initialization phase.
+Next up is the **module quiz**, where you can check your understanding of annotation-based configuration, component scanning, stereotypes and bean lifecycle annotations before moving on to the "Initialization Phase (Part 1)" lesson.

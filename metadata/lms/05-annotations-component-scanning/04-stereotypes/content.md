@@ -74,17 +74,4 @@ public class TransferServiceImpl implements TransferService { ... }
 
 Component scanning recognizes `@MyTransactionalService` the same way it recognizes `@Service` — because underneath, it's `@Service` (plus `@Transactional`) all along.
 
-## Recap
-
-- Component scanning looks for any annotation that is itself annotated with `@Component` — these are stereotype annotations, and `@Service` is one example.
-- Spring's core stereotype annotations map to conventional layers: `@Service`, `@Repository`, `@Controller`/`@RestController`, and `@Configuration` (which is itself component-scanned).
-- Meta-annotations let you build your own custom annotation that bundles multiple Spring behaviors — like being both a service and transactional — into a single annotation you apply once.
-- A custom meta-annotation needs `@Retention(RetentionPolicy.RUNTIME)` so Spring can see it at runtime, and an appropriate `@Target` to restrict where it can legally be applied.
-
-## Check your understanding
-
-1. Why does `@Service` get picked up by component scanning even though your `@ComponentScan` only mentions `@Component`?
-2. What would happen if you defined a custom meta-annotation but forgot to set `@Retention(RetentionPolicy.RUNTIME)`?
-3. Name two Spring layers, other than the service layer, that have a dedicated stereotype annotation, and what each is meant to mark.
-
 The next lesson puts all of this module's annotation-based configuration to work in a hands-on lab, before the course turns to the bean lifecycle itself in the "Initialization Phase (Part 1)" lesson.

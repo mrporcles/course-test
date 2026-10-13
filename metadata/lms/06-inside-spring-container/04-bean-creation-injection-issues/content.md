@@ -124,18 +124,4 @@ The guiding principle here is to be **"sufficiently expressive."**
 
 This closes out the bean lifecycle module. Across the bean lifecycle lessons, you've seen the full lifecycle in depth — initialization, use, and destroy — plus the two families of extension points: `BeanFactoryPostProcessor`, which post-processes bean *definitions*, and `BeanPostProcessor`, which post-processes bean *instances*. And now you've seen the kinds of dependency and type-visibility issues that can trip you up when defining beans.
 
-## Recap
-
-- Spring resolves dependencies recursively before creating beans; `@DependsOn` lets you force an explicit creation order when you need one.
-- Java config determines a bean's name and type from the `@Bean` method (name/method name, type/return type); annotation-based config determines both from the annotated class itself.
-- Because Java config can return a narrower interface than the actual implementation provides, other beans that depend on a *different* interface implemented by that same class can fail to resolve.
-- Fix it by either returning the more specific implementation type, or by introducing a composite interface that captures everything the bean actually provides.
-- Aim to be "sufficiently expressive" in your return types — but keep injecting via interfaces regardless, since injecting concrete types is brittle.
-
-## Check your understanding
-
-1. Why does an annotation-based (`@Component`) bean never run into the "under-expressive return type" problem that a Java config `@Bean` method can?
-2. A class implements three interfaces, but only one of them is ever used for dependency injection elsewhere in your application. Do you need a composite interface here? Why or why not?
-3. Even after applying Solution 1 and returning the concrete implementation type from your `@Bean` method, what should you still do at the injection points that consume that bean, and why?
-
-With the bean lifecycle now fully covered, the next module turns to a different kind of problem entirely: how Aspect-Oriented Programming lets you modularize behavior — like security, transactions, and logging — that would otherwise be duplicated across your entire codebase.
+With the bean lifecycle now fully covered, the module quiz is next. It lets you check your understanding of the container lifecycle before the course moves on to Aspect-Oriented Programming.

@@ -129,19 +129,4 @@ execution(* *..restaurant.*.*(..))
 ```
 Here the package starts with a leading `*` instead. This is necessary because an expression can't validly *start* with `..` — so instead, you need something (`*`) before `..restaurant`. This matches any package ending in `restaurant`, with zero or more segments before it — `something.restaurant`, `something.something.restaurant`, and so on. This is the broadest of the three, and contains the second as a special case.
 
-## Recap
-
-- Spring AOP pointcut expressions center on the `execution` designator, because Spring AOP join points are always method invocations; the full AspectJ language is broader, but Spring AOP's subset covers the large majority of real cases.
-- The method pattern is `[Modifiers] ReturnType [ClassType] MethodName(Arguments) [throws ExceptionType]` — only the return type and the method name with its arguments are required.
-- `*` matches exactly one thing (a type, package segment, method name, or argument); `..` matches zero or more (arguments or package segments).
-- You can match by a concrete class (which also matches its subclasses), by an interface (matching every implementation), or by annotation (ideal when there's no naming convention).
-- Package wildcarding has three flavors of increasing breadth: `*` (exactly one segment), `..` (zero or more segments in the middle), and a leading `*` before `..` (since an expression can't start with `..`).
-- Because these expressions are plain strings, always use fully qualified names for any non-primitive type, class, or annotation.
-
-## Check your understanding
-
-1. Write a pointcut expression that matches any method named `process`, with exactly one argument, on any class in the package `com.acme.billing`, returning any type.
-2. What's the difference in meaning between `execution(* rewards.*.restaurant.*.*(..))` and `execution(* rewards..restaurant.*.*(..))`, and which one is broader?
-3. Why can't a pointcut expression's package portion start with `..`, and what do you write instead to express "any number of leading packages"?
-
 You've now seen how to define exactly *where* an aspect applies. Next, we'll look at the different types of advice you can attach to a pointcut — beyond the `@Before` advice you've used so far — and when each one is the right tool for the job.

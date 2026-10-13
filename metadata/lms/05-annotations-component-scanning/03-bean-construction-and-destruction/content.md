@@ -88,18 +88,4 @@ ConfigurableApplicationContext context = SpringApplication.run(...);
 
 When the JVM shuts down — via `System.exit()`, `Runtime.exit()`, or a graceful process termination — that hook fires, tells the `ConfigurableApplicationContext` to close, and every `@PreDestroy`-annotated method runs as part of that shutdown. This only applies to a *graceful* shutdown; forcibly killing the process bypasses the hook entirely, and no cleanup code runs.
 
-## Recap
-
-- `@PostConstruct` and `@PreDestroy` are standard JSR-250 annotations (`jakarta.annotation` on Spring Framework 6+/Boot 3+; `javax.annotation` on earlier versions), not Spring-specific — Spring just knows how to honor them.
-- The guaranteed order is constructor injection, then setter injection, then `@PostConstruct` methods — so by the time your post-construct logic runs, every dependency is already available.
-- `@PreDestroy` runs when the context closes normally, but never for prototype-scoped beans, and never if the process is killed rather than terminated gracefully.
-- For beans you don't own or can't annotate, use `@Bean(initMethod = "...", destroyMethod = "...")` as the equivalent mechanism.
-- `SpringApplication.run(...)` registers a JVM shutdown hook automatically, so a graceful shutdown closes the context — and runs your `@PreDestroy` methods — without any extra code on your part.
-
-## Check your understanding
-
-1. Why would putting cache-population logic directly in a constructor be unsafe for a bean that uses setter injection, and how does `@PostConstruct` solve that?
-2. Why doesn't Spring call `@PreDestroy` methods on prototype-scoped beans?
-3. You're wiring up a `DataSource` bean from a third-party library that you can't modify. How would you hook into its initialization and cleanup lifecycle without `@PostConstruct`/`@PreDestroy`?
-
 The next lesson turns to stereotype and meta-annotations — how annotations like `@Service` and `@Repository` build on top of everything you've seen so far.

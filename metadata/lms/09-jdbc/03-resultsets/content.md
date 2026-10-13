@@ -150,18 +150,4 @@ A third callback, `RowCallbackHandler`, behaves like `RowMapper` in that you get
 - **`ResultSetExtractor`** — best choice when *multiple* rows of a `ResultSet` map to a *single* object.
 - **`RowCallbackHandler`** — yet another handler, one that writes to alternative destinations rather than returning a mapped result.
 
-## Recap
-
-- `queryForMap` and `queryForList` return raw, unmapped data as generic maps — handy for ad hoc queries or testing, but memory-heavy for large result sets.
-- `JdbcTemplate` can map results into your own domain objects without requiring a full ORM, which is especially useful for complex schemas that are awkward to map with JPA.
-- `RowMapper` maps a single row to an object and works for both `queryForObject` (single row) and `query` (multiple rows).
-- `ResultSetExtractor` maps an entire `ResultSet` to one object, with you controlling the iteration — useful for joins that logically produce one object out of many rows.
-- `RowCallbackHandler` gives you per-row access like `RowMapper` but doesn't return a value, making it suited to streaming or side-effecting work.
-
-## Check your understanding
-
-1. If you just want to peek at all the rows in a table without mapping them to a domain class, which two methods would you reach for, and what does each return?
-2. Why does a `ResultSetExtractor` lambda need an explicit cast, while a `RowMapper` lambda usually doesn't?
-3. You're building an `Order` object out of a join across `order` and `item` tables, where several `ResultSet` rows belong to the same order. Which callback interface fits this case, and why not `RowMapper`?
-
 The next lesson turns to exception handling — specifically, how `JdbcTemplate` translates the checked `SQLException` you saw in the "Problems with traditional JDBC and into JdbcTemplate" lesson into something more useful to work with.

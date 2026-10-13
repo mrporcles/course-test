@@ -74,18 +74,4 @@ The last to-do experiments with a different way of supplying `@SpringJUnitConfig
 
 When `@SpringJUnitConfig` is given no explicit `classes` attribute, the TestContext Framework looks for a static inner configuration class inside the test class itself and uses that as the entry point instead. Once the inner class is in place and the external reference is removed, rerunning the test produces the same green bar as before, using the same active profiles — confirming the two approaches are functionally equivalent.
 
-## Recap
-
-- The Spring TestContext Framework (`@SpringJUnitConfig`) replaces hand-written `@BeforeEach`/`@AfterEach` application-context setup, but the test still needs `@Autowired` to actually get its dependencies injected.
-- Annotating two competing repository implementations with the same stereotype annotation, without profiles, produces a `NoUniqueBeanDefinitionException` — Spring can't decide which bean to inject.
-- `@Profile` on each implementation, combined with `@ActiveProfiles` on the test class, resolves the ambiguity by only activating one implementation set at a time.
-- `@ActiveProfiles` accepts an array of profile names when more than one profile needs to be active simultaneously.
-- `@SpringJUnitConfig` can load its configuration from an external class or from a `static` inner class defined directly inside the test — both work identically.
-
-## Check your understanding
-
-1. Why did the test fail with a `NullPointerException` immediately after switching to `@SpringJUnitConfig`, before `@Autowired` was added?
-2. What specifically caused the `NoUniqueBeanDefinitionException` in to-do 2, and which annotation combination fixed it in to-do 3?
-3. How does `@SpringJUnitConfig` know to use a static inner class as its configuration source instead of an external class?
-
-The next lesson moves into a new module, starting with the problems plain JDBC code has and how Spring's `JdbcTemplate` fixes them.
+Next up is the module quiz, which checks your understanding of testing Spring applications before the course moves on to the problems plain JDBC code has and how Spring's `JdbcTemplate` fixes them.

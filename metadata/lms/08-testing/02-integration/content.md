@@ -146,19 +146,4 @@ Properties specified this way have **higher precedence** than sources already pr
 
 Scaling down the infrastructure layer this way is what makes it practical to run your test suite anywhere: in your IDE, in your build tool, in CI — without depending on anything external being available.
 
-## Recap
-
-- Unit tests isolate a single component and avoid Spring entirely; integration tests use Spring to wire multiple real components together, typically against scaled-down infrastructure.
-- `@ExtendWith(SpringExtension.class)` plugs Spring into JUnit 5's extension model; `@ContextConfiguration` tells it which configuration classes to load; `@SpringJUnitConfig` composes both into one annotation.
-- Dependencies can be autowired at the field level (visible to the whole test class) or the method-argument level (visible to just that test method).
-- An embedded static `@Configuration` class inside a test class, combined with `@Import`, lets you override a single bean just for that test without touching the shared configuration.
-- The application context built for a test class is cached and reused across test methods by default — `@DirtiesContext` forces a rebuild when a test has mutated shared state.
-- `@TestPropertySource` loads test-only properties (inline or from a file) with higher precedence than your application's normal property sources.
-
-## Check your understanding
-
-1. What's the practical difference between autowiring a dependency as a test class field versus as a `@Test` method argument?
-2. Why does the embedded static configuration class in `JdbcAccountRepoTest` still need `@Import(SystemTestConfig.class)`, rather than just defining its own `DataSource` bean on its own?
-3. If a test mutates shared application state and doesn't use `@DirtiesContext`, what's the risk for the next test method that runs?
-
 The next lesson builds on this foundation by looking at how Spring profiles and databases fit into your test configuration.

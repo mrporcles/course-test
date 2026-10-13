@@ -64,18 +64,4 @@ Everything above creates the application context **explicitly** — you're calli
 
 Later in the course, you'll see how Spring's test context framework can do this **implicitly** for you — meaning you write far less boilerplate, and the framework takes care of building (and, importantly, reusing) the context across tests. For now, it's enough to know that this manual, explicit approach exists and works correctly; the more convenient version is coming.
 
-## Recap
-
-- The application context is Spring's DI container — it manages the full lifecycle of your beans.
-- It can be created in any environment: standalone applications, web applications, or tests.
-- `SpringApplication.run(SomeConfig.class)` builds the context from a configuration class.
-- `context.getBean(SomeType.class)` retrieves a fully wired bean, with its entire dependency graph already resolved.
-- This explicit, manual approach works, but Spring's test context framework offers a more convenient, implicit alternative you'll meet later in the course.
-
-## Check your understanding
-
-1. What does `SpringApplication.run` actually return, and what has already happened to every bean inside it by the time it returns?
-2. Why does creating the context inside a `@BeforeEach` method make sense for a test class with multiple `@Test` methods?
-3. What's the practical difference between the explicit approach shown in this lesson and the "implicit" approach mentioned at the end?
-
 So far, every example has used a single configuration file. The next lesson looks at what happens — and what good practice looks like — once your configuration needs to be split across multiple files.

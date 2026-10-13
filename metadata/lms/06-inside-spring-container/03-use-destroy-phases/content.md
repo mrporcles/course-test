@@ -75,18 +75,4 @@ When that happens:
 
 A couple of important limits apply here. This clean-up process happens for non-prototype-scoped beans — singleton, request, session, WebSocket, and so on — but **not** for prototype-scoped beans, because the container has no way of knowing when a prototype bean goes out of scope or is no longer needed; it isn't tracking that bean's lifetime the way it does for other scopes. And critically, this only happens if the application shuts down *gracefully*. If the process is killed outright, there's no opportunity for the destruction phase to run at all.
 
-## Recap
-
-- Retrieving a bean from the context sometimes gives you your raw object, and sometimes gives you a proxy that Spring created during initialization to add behavior transparently (transactions, security, exception handling).
-- A transactional call flows: caller → proxy → interceptor → transaction manager (begin) → target's business logic → interceptor → transaction manager (commit/rollback) → caller.
-- Spring chooses a JDK dynamic proxy when your class implements an interface, and a CGLIB proxy (which extends your class) when it doesn't; Spring Boot always uses CGLIB.
-- Only interface methods are proxied — an implementation-only method won't be reachable through a bean retrieved from the context.
-- The destroy phase runs `@PreDestroy` methods and releases beans for garbage collection, but only for non-prototype beans, and only on a graceful shutdown.
-
-## Check your understanding
-
-1. Why does Spring Boot always choose CGLIB proxies instead of picking based on whether your class implements an interface?
-2. If you call `context.close()` and your application defines a `@PreDestroy` method on a prototype-scoped bean, will that method run? Why or why not?
-3. Walk through, in order, what happens to a transactional method call from the moment the caller invokes it to the moment control returns — naming each component involved.
-
 Now that you've seen the full lifecycle — initialization, use, and destruction — the next lesson circles back to fill in a detail we skipped: exactly how Spring figures out the order to create your beans, and what can go wrong along the way.

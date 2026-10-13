@@ -44,18 +44,4 @@ Both configuration styles from the "Annotation-based Configuration" lesson do th
 
 Ultimately, how much of each style you use is your call — and it'll vary project to project. What matters far more than which style you pick is being **consistent** about it within a given codebase, so the rest of your team isn't left guessing why one service is configured one way and another is configured completely differently.
 
-## Recap
-
-- `@Autowired` is only strictly *required* when a class has more than one constructor and you need to tell Spring which one to use; it's optional (though sometimes used for clarity) in the single-constructor and default-constructor cases.
-- Component scanning walks the entire classpath, JAR dependencies included — scope it to your own package structure, and ideally to the specific packages that actually hold your components, to avoid unnecessary startup cost.
-- Prefer annotations for your own services, repositories, and controllers, especially where Spring requires them (like Spring MVC) or where stereotype annotations apply.
-- Prefer Java configuration for beans you don't own, for centralizing configuration in one place, or for configuring any class regardless of whether it can be annotated.
-- Consistency across a project matters more than which specific style you pick.
-
-## Check your understanding
-
-1. If a class has two constructors and neither is annotated with `@Autowired`, what will Spring do — and when would that actually fail?
-2. Why is `@ComponentScan({"org", "com"})` a serious performance problem, even though it will technically still find your application's components?
-3. Give an example of a bean you'd choose to configure with Java config rather than annotations, and explain why annotations wouldn't be an option there.
-
 The next lesson moves into the bean lifecycle itself, starting with the `@PostConstruct` and `@PreDestroy` annotations.

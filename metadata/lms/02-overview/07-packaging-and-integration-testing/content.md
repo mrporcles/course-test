@@ -100,17 +100,4 @@ public class Application {
 
 Here's how that discovery works: `@SpringBootTest` walks up the package hierarchy looking for a class annotated with `@SpringBootConfiguration`, provided that configuration lives in a package *above* the test. Recall that a class annotated with `@SpringBootApplication` is, among other things, annotated with `@SpringBootConfiguration` — it's a configuration class that also performs component scanning and enables auto-configuration. Since a project usually has exactly one such class (its entry point), `@SpringBootTest` can reliably find it on its own. Only one `@SpringBootConfiguration`-annotated class is allowed in any given hierarchy, which is what makes this auto-discovery unambiguous.
 
-## Recap
-
-- Spring Boot can package an application as a fat JAR, a WAR, or a container image; the fat JAR bundles every dependency (including an embedded server) so it can run with `java -jar`.
-- The Spring Boot Maven plugin extends `package` to build the fat JAR and adds a `spring-boot:run` goal for running without packaging.
-- `mvn package` produces two files: a small `.jar.original` with just your classes, and a much larger, executable `.jar` with everything bundled in.
-- `@SpringBootTest` builds its application context the same way a real Spring Boot application would — with auto-configuration applied — and can auto-discover its entry point by searching for a `@SpringBootConfiguration`-annotated class in a package above the test.
-
-## Check your understanding
-
-1. What's the difference between `yourapp.jar` and `yourapp.jar.original`, and which one would you actually deploy?
-2. Why does switching a test from `@SpringJUnitConfig` to `@SpringBootTest` change what gets configured, even though you're testing the same beans?
-3. Under what condition can `@SpringBootTest` omit the `classes` attribute entirely?
-
-A later module in this course will return to integration testing in more depth; for now, next up is **Quick Start with Java Configuration**, which moves into the details of configuring the application context by hand.
+Next up is the **module quiz**, where you can test your understanding of what you have covered in this module.

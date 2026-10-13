@@ -55,17 +55,4 @@ Spring provides framework classes, interfaces, and annotations to simplify worki
 
 As an open source project, the whole Spring portfolio lives at <a href="https://github.com/spring-projects" target="_blank" rel="noopener noreferrer">github.com/spring-projects</a>. The Spring Framework you're learning here is just the core — beyond it you'll find sibling projects like Spring Data and Spring Security, all under an Apache 2 license and published to Maven Central. Each project in the portfolio has its own dedicated documentation.
 
-## Recap
-
-- Spring is a framework, not a library — it helps across your whole application, not just in the parts you explicitly call.
-- Being open source, lightweight, and non-invasive are three of the main reasons Spring became — and stayed — so popular.
-- At its core, Spring is a DI/IoC container that wires up, instantiates, and manages the lifecycle of your application's objects.
-- Beyond the container, Spring integrates with practically every technology an enterprise application might need — JDBC, messaging, security, and more.
-
-## Check your understanding
-
-1. Why does it matter that Spring is a framework rather than a simple library?
-2. What does it mean for Spring to be "non-invasive," and how does the POJO programming model relate to that?
-3. Name two categories of technology, beyond dependency injection itself, that Spring provides integration support for.
-
 Next up is **The Dependency Injection (DI) Container**, where you'll dig into how that container actually manages your components' dependencies.

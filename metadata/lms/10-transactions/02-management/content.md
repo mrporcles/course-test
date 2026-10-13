@@ -139,19 +139,4 @@ Here, the class-level default gives every method a 60-second timeout. `updateCon
 
 There are actually **two** `@Transactional` annotations available on the classpath: one in `jakarta.transaction` (the standard JTA version — `javax.transaction` on Spring Framework 5.x and earlier) and one in Spring's own package. If you import the standard JTA `@Transactional`, you'll find you can't override properties like propagation, since that version simply doesn't expose them. Always make sure you're importing **Spring's** `@Transactional` — this is called out specifically because it's a genuinely common mistake to import the wrong one, especially in lab exercises.
 
-## Recap
-
-- Spring separates transaction demarcation (declared in your code via `@Transactional`) from transaction implementation (configured via a `PlatformTransactionManager` bean) — switching implementations is a configuration change, not a code change.
-- Setting up declarative transaction management takes two steps: declare a `PlatformTransactionManager` bean, and mark transactional methods with `@Transactional`, backed by `@EnableTransactionManagement`.
-- `@Transactional` methods run through a Spring proxy containing a `TransactionInterceptor`, which begins the transaction before delegating to your business logic, then commits or rolls back afterward.
-- By default, an unchecked exception triggers a rollback, while a checked exception still commits — a default that can be overridden.
-- The current transaction is bound to the thread via a thread-local, which is exactly how `JdbcTemplate` automatically reuses the right connection inside a transactional method.
-- `@Transactional` can be applied at the class level (as a default for every method) and overridden per method — and you must import Spring's own `@Transactional`, not the JTA `jakarta.transaction`/`javax.transaction` version, to get access to its full set of properties.
-
-## Check your understanding
-
-1. What two steps are required to get declarative transaction management working in a Spring application, and which annotation activates the proxy machinery behind them?
-2. By default, does a checked exception thrown from inside an `@Transactional` method commit or roll back the transaction — and how does that compare to an unchecked exception?
-3. Why does `JdbcTemplate` automatically participate in an already-open transaction without any extra code in your repository methods?
-
 The next lesson builds on this foundation by looking at how to configure transaction propagation — controlling what happens when a transactional method calls another transactional method.

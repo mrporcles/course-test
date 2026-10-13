@@ -57,17 +57,4 @@ Spring keeps adapting to whatever's current:
 - Kotlin support
 - Kubernetes — Spring applications can be packaged as Docker containers, and Spring provides features like health checks that Kubernetes relies on for orchestration
 
-## Recap
-
-- Spring emerged as a reaction to how difficult and expensive J2EE made enterprise development, driven by principles Rod Johnson introduced in *J2EE Design and Development*.
-- Spring's longevity comes from providing choice, embracing change while preserving backwards compatibility, holding a high engineering bar, and having a large, active community.
-- Over time, Spring has continually adapted — integrating with new libraries, spinning off dedicated projects for new domains, and adopting new languages and runtimes.
-- Spring can be used to build nearly any kind of enterprise application: web, messaging, persistence, batch, integration, and streaming, and it continues to track current trends like native compilation, reactive programming, and Kubernetes.
-
-## Check your understanding
-
-1. What problem with J2EE was Spring originally created to solve, and who wrote the book that introduced its founding principles?
-2. Name two examples of how Spring has adapted to new technology domains over the years.
-3. Which recent Spring capability specifically supports running applications with scale-to-zero, serverless-style deployment?
-
 Up next is your first hands-on exercise, **Walkthrough - Spring Overview Lab**, where you'll get familiar with the reward network application you'll be using throughout the rest of the course.

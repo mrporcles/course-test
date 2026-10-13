@@ -146,19 +146,4 @@ class ProdConfig { ... }
 
 `DevConfig`'s beans — and its `local.properties` file — are only active if the `local` profile is activated. `ProdConfig`'s beans, and its `cloud.properties` file, are only active if `cloud` is activated. This gives you dynamic, profile-driven loading of property files, on top of the profile-driven loading of beans covered earlier in this lesson.
 
-## Recap
-
-- A **profile** is a named group of bean definitions; beans with no profile are always active, while profile-scoped beans are only included when their profile is activated.
-- `@Profile` can be applied to a whole `@Configuration` class or to individual `@Bean` methods for finer control.
-- The `!` operator lets you define one configuration as "active when this profile is *not* active" — handy for maintaining exactly two mutually exclusive alternatives.
-- Profiles are activated at runtime, either via the `-Dspring.profiles.active=...` system property on the command line, or programmatically with `System.setProperty(...)` before the context is created. `@ActiveProfiles` is a separate, test-only mechanism.
-- More than one profile can be active at the same time.
-- `@PropertySource` can be combined with `@Profile` so a property file only loads when its matching profile is active.
-
-## Check your understanding
-
-1. If a bean is defined inside a class with no `@Profile` annotation at all, under what conditions is it included in the application context?
-2. What does `@Profile("!cloud")` mean, and why is it useful alongside a class annotated `@Profile("cloud")`?
-3. Name the two general-purpose ways to activate a profile at runtime, and explain why `@ActiveProfiles` isn't a third option for a production application.
-
 The next lesson introduces the last of this module's three topics: the Spring Expression Language, or SpEL for short.

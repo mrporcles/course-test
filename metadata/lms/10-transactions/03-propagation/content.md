@@ -93,17 +93,3 @@ public class ClientServiceImpl implements ClientService {
 Even though `update2()` is annotated with `REQUIRES_NEW`, calling it from `update1()` in the example above never creates a new transaction. Because the call to `update2()` doesn't go through the proxy, the transaction interceptor never runs for that call, so its `@Transactional` annotation is effectively ignored. Both methods end up participating in the same transaction: `update1()` starts it (`REQUIRED`, no existing transaction), and `update2()` just continues running inside it, as if it had no annotation at all.
 
 This is a direct consequence of how Spring AOP proxies work: they can only intercept calls that arrive from outside the object, through the proxy. Self-invocation — one method on a class calling another method on the same class — never passes through that boundary.
-
-## Recap
-
-- **Propagation** decides what happens to a transaction when a transactional method calls another transactional method.
-- Spring defines seven propagation levels; `REQUIRED` and `REQUIRES_NEW` are the two most commonly used.
-- **`REQUIRED`** (the default) runs within an existing transaction if one is active, or creates a new one if not — ideal for a service method that calls multiple repositories and wants them all in one transaction.
-- **`REQUIRES_NEW`** always creates a new, independent transaction, suspending any current one until the new one finishes. The two transactions can commit or roll back independently of each other.
-- Propagation (and all transactional behavior) is enforced by a proxy. Internal, same-class method calls bypass the proxy, so a propagation override on an internally-called method has no effect.
-
-## Check your understanding
-
-1. `updateClient()` (propagation `REQUIRED`) calls `update()` (propagation `REQUIRED`) on a different bean. If `updateClient()` already started a transaction, what happens when `update()` runs — does it get its own transaction or share the existing one?
-2. You mark a method `REQUIRES_NEW` because you want its work to commit independently of the caller's transaction. What has to be true about how that method is called for the `REQUIRES_NEW` setting to actually take effect?
-3. If an outer transaction eventually rolls back, what happens to the work done inside a `REQUIRES_NEW` method that already committed?

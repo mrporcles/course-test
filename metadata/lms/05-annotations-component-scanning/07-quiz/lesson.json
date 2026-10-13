@@ -1,0 +1,15 @@
+{
+  "id": "spring-essentials-modernized-component-scanning-quiz",
+  "slug": "spring-essentials-component-scanning-quiz-modernized",
+  "title": "Quiz: Check Your Understanding",
+  "status": "live",
+  "type": "article",
+  "duration": 600,
+  "entitlements": [
+    "auth"
+  ],
+  "settings": {
+    "manualCompletion": true,
+    "completionCode": "spring-annotations"
+  }
+}

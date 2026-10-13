@@ -109,17 +109,4 @@ service.setAccountRepository(stubRepository);
 
 Because `TransferServiceImpl` never depended on a concrete repository type, substituting a test stub for the real implementation requires no changes to the service code at all.
 
-## Recap
-
-- The DI container exists to take over the "plumbing" of assembling your application's components, applying DRY, separation of concerns, the POJO model, and convention over configuration along the way.
-- Components that depend on each other (like a `TransferService` needing an `AccountRepository`) raise real questions about assembly, instantiation, and swapping implementations — questions the container answers for you.
-- Depending on interfaces rather than concrete classes decouples components, so an implementation can be swapped (JDBC to JPA, or real to stub) without touching the dependent class.
-- That same decoupling is what makes unit testing straightforward — dependencies can be replaced with stubs with no container involved at all.
-
-## Check your understanding
-
-1. In the money transfer example, why does `TransferServiceImpl` depend on the `AccountRepository` interface instead of a specific class like `JdbcAccountRepository`?
-2. What are the three steps the container performs when assembling the `TransferServiceImpl` and its repository (in the equivalent hand-written code)?
-3. Why does depending on an interface make it easier to write a unit test for `TransferServiceImpl`?
-
 Next up is **Spring Framework History**, which looks at how Spring became so popular and where it's headed.

@@ -97,13 +97,4 @@ public class RewardNetworkTest {
 
 Now each test method starts its own transaction before running, delegates to `rewardAccountFor` (which joins that transaction, since its propagation is back to the default `REQUIRED`), and rolls that transaction back automatically once the test method finishes — regardless of whether the test passed. Rerunning both tests now produces a green bar for each: the first test's assertions pass and then get rolled back, so the second test starts from a clean slate and passes too. This is exactly the behavior the "Setup Rollback Rules and Testing support" lesson described — test transactions default to rolling back, specifically so that state never leaks from one test into the next.
 
-## Recap
-
-- `@Transactional` (Spring's own annotation, not the standard one) makes a method atomic and unlocks propagation, rollback, and read-only attributes.
-- In plain Spring (without Spring Boot), you must explicitly define a `PlatformTransactionManager` bean (`DataSourceTransactionManager` for JDBC) and add `@EnableTransactionManagement` yourself.
-- A transactional method that makes several database calls reuses a single connection — visible directly in the debug log as one acquire and one release.
-- `REQUIRED` propagation means a manual rollback around a transactional method rolls back that method's work too, since they share one transaction; `REQUIRES_NEW` makes the method's transaction commit independently, immune to a later rollback of the caller's transaction.
-- Without test-level transaction management, committed data from one test can leak into and break a later test that repeats the same logic.
-- `@Transactional` at the test class level wraps every test method in its own transaction and rolls it back afterward, preventing that kind of state leakage between tests.
-
-The next lesson closes out the course.
+Next up is the **module quiz**, where you can check your understanding of transaction management. After the quiz, the course closes out.

@@ -135,18 +135,4 @@ Each change ripples outward in the same two places:
 
 After each of the three repositories is migrated this way, re-running that repository's test class confirms everything still passes — proving the constructor's contract can change cleanly as long as every caller (both the production configuration and the tests) is updated to match.
 
-## Recap
-
-- `JdbcTemplate`'s `queryForObject` handles a single scalar value; `queryForMap` handles every column of a single row; `query` (with a callback) or `update` handle everything else, including inserts, updates, and deletes.
-- A `RowMapper` maps one row into one object — a natural fit for a lambda, and simplifiable to a method reference when its signature lines up with an existing mapping method.
-- A `ResultSetExtractor` maps an entire result set into a single object, for cases where a row mapper's one-to-one mapping isn't the right shape.
-- Refactoring toward `JdbcTemplate` is safe to do incrementally: you can keep a constructor's existing `DataSource`-based contract while using `JdbcTemplate` internally, and migrate to injecting `JdbcTemplate` directly later without changing behavior.
-- Changing a constructor's dependency type ripples out to both the Spring configuration that wires up the bean and any test code that constructs it directly — both need to be updated together.
-
-## Check your understanding
-
-1. Why does `findByMerchantNumber` use a `RowMapper` while `findByCreditCard` uses a `ResultSetExtractor` — what's the underlying difference between what each callback is meant to produce?
-2. In to-do 3, why does the lab keep the `JdbcRewardRepository` constructor accepting a `DataSource` rather than switching immediately to injecting a `JdbcTemplate`?
-3. When a repository's constructor is changed to accept a `JdbcTemplate` instead of a `DataSource`, what two other places in the codebase must be updated for the tests to pass again?
-
-With the JDBC module now complete, the course turns to a new topic: why transactions matter, and how Spring manages them for you.
+With the JDBC module now complete, next up is the **module quiz**, where you can check your understanding of everything covered here. After the quiz, the course turns to a new topic: why transactions matter, and how Spring manages them for you.

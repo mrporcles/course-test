@@ -95,19 +95,4 @@ You should create a template once and reuse it everywhere — there's no need fo
 
 Beyond everyday application repositories, `JdbcTemplate` is also useful any time JDBC is needed in utility or test code, or to clean up messy legacy code — for example, using it inside a test to directly verify something landed in the database, even if your application otherwise uses a higher-level persistence API.
 
-## Recap
-
-- Plain JDBC forces you to write a large amount of boilerplate (connections, prepared statements, result set iteration, exception handling) around the only two things that actually matter: the SQL statement and the row-mapping logic.
-- `SQLException` is checked and generic, which usually means there's no meaningful way to handle it at the point it's thrown.
-- `JdbcTemplate` implements the Template design pattern, the same pattern behind other Spring templates like `RestTemplate` and `JmsTemplate`.
-- A single `JdbcTemplate` call (e.g., `queryForObject`) handles connection acquisition, transaction participation, statement execution, result processing, exception handling, and connection release.
-- Callbacks like `RowMapper` let you plug in just the row-mapping logic while `JdbcTemplate` handles the rest.
-- `JdbcTemplate` needs only a `DataSource`, is thread-safe, and should be created once and reused everywhere.
-
-## Check your understanding
-
-1. In the plain JDBC example, which two pieces of the method actually matter, and which parts are boilerplate that `JdbcTemplate` eliminates?
-2. What design pattern does `JdbcTemplate` implement, and name two other Spring classes that implement the same pattern.
-3. What does a `RowMapper` callback let you avoid writing, and what does it still leave you responsible for?
-
 The next lesson digs deeper into `JdbcTemplate`'s basic usage — the query and update methods you'll reach for most often.

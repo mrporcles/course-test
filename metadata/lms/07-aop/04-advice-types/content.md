@@ -155,19 +155,4 @@ Everything in this module — the five advice types, the proxy that carries them
 
 Recognize the pattern? This is the *exact same idea* as `@Transactional`, which you'll meet properly in the transaction management module later in this course: an annotation triggers proxy creation, and the proxy wraps your method call in cross-cutting logic — begin/commit for `@Transactional`, retry-on-failure for `@Retryable`, a concurrency gate for `@ConcurrencyLimit` — without your business logic itself ever needing to know any of that is happening. Previously, retry logic like this required a separate library (Spring Retry); it's now a first-class part of the framework, built with the AOP proxy mechanism this entire module has been teaching.
 
-## Recap
-
-- **Before** advice runs before the target; throwing an exception here prevents the target from executing at all — useful for security checks.
-- **After returning** advice runs only after a successful return, and its `returning` attribute both narrows the match to a specific return type and binds the returned value into your advice method.
-- **After throwing** advice runs only when the target throws, and its `throwing` attribute both narrows the match to a specific exception type and binds the thrown exception — useful for exception handling and exception translation.
-- **After** advice runs regardless of outcome — success or exception.
-- **Around** advice is the odd one out: the proxy delegates only to your advice, and you must call `proceed()` yourself to reach the target. This gives you full control (changing return values, suppressing exceptions) but real risk (forgetting to call `proceed()` skips the target entirely).
-- Spring AOP's proxy-based design means it can only advise non-private methods on Spring-managed beans, and it can't advise internal (self-invoking) calls — limitations AspectJ's bytecode-weaving approach doesn't share.
-
-## Check your understanding
-
-1. Why does `@AfterReturning`'s `returning` attribute need to name one of the advice method's own arguments, rather than just specifying a type directly?
-2. If you want to both log an exception *and* let the original caller still receive it unchanged, which advice type would you use, and what would you avoid doing inside it?
-3. Why is it possible, in principle, to implement before, after returning, after throwing, and after advice all using nothing but `@Around`? What's the trade-off?
-
 That closes out the AOP module — the next lesson puts everything from the last few lessons into practice in a hands-on lab.

@@ -102,17 +102,4 @@ For more detail, see the Spring Framework Reference, Aspect Oriented Programming
 
 This course focuses on Spring AOP going forward — you'll see exactly how the proxy-based weaving works in the next lesson.
 
-## Recap
-
-- A cross-cutting concern is behavior needed across many classes and modules — logging, security, transactions, and caching are the classic examples. The word "every" in a requirement is a strong hint you've found one.
-- Without modularizing cross-cutting concerns, you get **code tangling** (business logic mixed with other concerns in the same method) and **code scattering** (the same concern copy-pasted across many modules).
-- AOP fixes both by having you (1) write plain business logic, (2) pull each cross-cutting concern into its own aspect, and (3) weave the aspects and business logic back together.
-- AspectJ is the original, full AOP language, using bytecode modification (load-time weaving). Spring AOP is simpler, uses dynamic proxies instead, and is the focus of this course.
-
-## Check your understanding
-
-1. A teammate says, "We need to log every call to our repository layer." What kind of problem is this, and what two symptoms would you expect to see if you didn't modularize it?
-2. What's the key mechanical difference between how AspectJ weaves aspects into your code and how Spring AOP does it?
-3. In the three-step AOP approach, what specifically happens during the "weaving" step?
-
 Now that you know *why* AOP exists, the next lesson introduces the core vocabulary — join points, pointcuts, advice, aspects, and weaving — and walks through building your first working aspect with Spring AOP.

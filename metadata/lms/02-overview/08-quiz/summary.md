@@ -1,0 +1,1 @@
+This quiz covers the course agenda, what the Spring Framework and its DI container are, Spring's history, the reward network lab, and packaging and integration testing. You need at least 80% correct to receive the completion code.

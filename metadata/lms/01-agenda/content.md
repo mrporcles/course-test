@@ -5,7 +5,7 @@ This first lesson is an orientation, not a technical deep-dive. By the end of it
 - Explain what this course covers and in what order
 - Understand the mixture of theory and hands-on labs you'll be working through
 - Recognize the range of application types Spring can be used to build
-- Know the history behind Spring's relationship with VMware
+- Know the history behind Spring's relationship with VMware and Broadcom
 
 ## Welcome to Spring Essentials
 
@@ -19,15 +19,20 @@ The training is organized into two broad parts.
 
 The first part is focused on the Spring container — also called the application context. You'll start with an introduction to Spring itself, then move into configuring the application context. You'll see different configuration styles, such as Java configuration and annotation-based configuration. (XML configuration won't be covered — the industry has been moving away from it for some time.) You'll also learn about the bean lifecycle: how the container manages your components through their initialization, use, and destruction phases.
 
-![Course Agenda, part 1](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/01-agenda/images/lesson1-agenda-part1.png)
+The topics in this first part are, in order:
+
+- **Introduction to Spring** — what the framework is and what it gives you.
+- **Using Spring to configure an application** — setting up the application context.
+- **Java-based dependency injection** — Java configuration, one of the main configuration styles.
+- **Component-scanning with annotated classes** — annotation-based configuration, the other main style.
+- **Inside the Spring container** — how the container works under the hood.
+- **The bean lifecycle and its related post processors** — how your components are initialized, used and destroyed.
 
 The second part builds on that foundation:
 
 - **Aspect-Oriented Programming (AOP)** — one of Spring's core building blocks. You'll implement your first aspect, and even if you never write an aspect yourself, you'll be relying on AOP any time you use transactions, security, or caching in Spring — this is also where the concept of proxies gets introduced.
 - **Testing** — testing is essential, and you'll test both your application code and your application context using JUnit 5 and Spring's test context framework.
-- **The data access layer** — you'll see how Spring simplifies the JDBC API, including the `JdbcTemplate` and Spring's transaction support.
-
-![Course Agenda, part 2](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/01-agenda/images/lesson1-agenda-part2.png)
+- **The data access layer** — you'll see how Spring simplifies the JDBC API, including the `JdbcTemplate`, and how to drive database transactions with Spring's transaction support.
 
 ## What can Spring do?
 
@@ -43,28 +48,20 @@ Spring makes programming Java quicker, easier, and safer, and it can be used to 
 
 If you want to explore the full portfolio of Spring projects, <a href="https://spring.io/projects" target="_blank" rel="noopener noreferrer">https://spring.io/projects</a> is worth bookmarking.
 
-## A short history lesson: Spring and VMware
+## A short history lesson: Spring, VMware and Broadcom
 
 You don't need this to write code, but it explains some of the branding you'll run into in documentation and tooling:
 
-- **2004** — a company was formed to support the Spring Framework, which had come out in late 2003/early 2004. That company was called Interface21, later renamed **SpringSource**.
-- **2009** — SpringSource was acquired by **VMware**.
-- **2013** — VMware transferred Spring to a spin-off joint venture called **Pivotal**.
-- **2019** — **VMware re-acquired Pivotal**, bringing Spring development back under VMware.
+- **2003** — the Spring Framework is released as an open source project (version 0.9); version 1.0 follows in 2004.
+- **2004** — a company is formed to support the framework: **Interface21**.
+- **2007** — Interface21 is renamed **SpringSource**.
+- **2009** — SpringSource is acquired by **VMware**.
+- **2013** — VMware and its parent, EMC, spin Spring out into a joint venture, **Pivotal**.
+- **2019** — **VMware re-acquires Pivotal**, bringing Spring back under VMware, where it becomes part of the Tanzu portfolio.
+- **2023** — **Broadcom completes its acquisition of VMware**, and Spring is now developed by VMware by Broadcom.
+- **2025** — Spring Framework 7.0 and Spring Boot 4.0 are released.
+- **2026** — Broadcom announces an expanded investment in the security of Spring and the Java ecosystem, with enterprise support delivered through VMware Tanzu Spring.
 
-So when you see "VMware Spring" or "VMware Tanzu" in official material, now you know why: all Spring development today is done by VMware, which is the framework's current home.
-
-## Recap
-
-- This course teaches plain Spring — dependency injection, configuration, AOP, testing, and JDBC support — without relying on Spring Boot's auto-configuration.
-- The labs build up a single real-world application (the reward network) piece by piece, rather than using disconnected examples.
-- Spring can be used to build almost any kind of application: microservices, reactive systems, cloud-native apps, web apps, event-driven systems, batch jobs, and even serverless functions.
-- Spring's development today is done by VMware, following a path from Interface21 → SpringSource → VMware → Pivotal → back to VMware.
-
-## Check your understanding
-
-1. What are the two broad parts this course is organized into, and what does each one cover?
-2. Name three different types of applications you could build with Spring.
-3. What company originally created Spring, and what path did it take to end up back at VMware?
+So when you see "VMware Spring", "VMware Tanzu" or "Broadcom" in official material, now you know why: Spring has been through several owners, and today its development is led by VMware, part of Broadcom. Spring itself remains open source under the Apache 2 license.
 
 Let's get on with the course — next up is **What is the Spring Framework?**, where you'll take a closer look at what the Spring Framework actually is.

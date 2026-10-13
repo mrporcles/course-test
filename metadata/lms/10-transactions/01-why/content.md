@@ -70,18 +70,4 @@ Here's the same sequence again, but running inside a transaction:
 
 The connection is acquired once, at the very start — `connection-1` — and every subsequent call (`findByCreditCard`, `findByMerchantNumber`, `updateBeneficiaries`, `confirmReward`) reuses that exact same connection. The connection is only closed once, at the very end, after every step has completed. Because it's all one connection and one transaction, the database can guarantee the whole thing behaves as a single atomic operation: either every one of those `SELECT`, `UPDATE`, and `INSERT` statements takes effect, or none of them do.
 
-## Recap
-
-- A transaction is a set of tasks that behave as a single, indivisible action, guaranteed to be Atomic, Consistent, Isolated, and Durable (ACID).
-- Java has multiple transaction-capable APIs (JDBC, JPA, JMS), but no single common API across all of them — which is the core motivation for letting Spring manage transactions instead.
-- Without a transaction, each repository call gets and releases its own connection independently, which is both inefficient and non-atomic.
-- Non-atomic operations are vulnerable to partial failures — some steps succeed and commit, others fail, and the result is inconsistent data with no record of what actually happened.
-- Running a unit of work inside a transaction means acquiring one connection up front, reusing it for every step, and only releasing it once the entire unit of work has either fully succeeded or fully failed.
-
-## Check your understanding
-
-1. Which of the four ACID properties is violated specifically when a partial failure occurs, and why?
-2. In the non-transactional version of `rewardAccountFor`, how many separate database connections get acquired across the four data-access calls, and why is that a problem beyond just atomicity?
-3. Why doesn't Java provide one common API for transaction management across JDBC, JPA, and JMS?
-
 Now that the "why" is established, the next lesson looks at exactly how Spring implements transaction management under the hood — starting with the `PlatformTransactionManager` and the `@Transactional` annotation.
