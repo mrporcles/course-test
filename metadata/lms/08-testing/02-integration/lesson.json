@@ -1,0 +1,11 @@
+{
+  "id": "spring-essentials-modernized-testing-integration",
+  "slug": "spring-essentials-testing-integration-modernized",
+  "title": "Write Integration Tests using Spring",
+  "status": "live",
+  "type": "article",
+  "duration": 480,
+  "settings": {
+    "manualCompletion": true
+  }
+}

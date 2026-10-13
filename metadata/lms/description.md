@@ -1,0 +1,1 @@
+In this course, we’ll cover the essential topics you’ll need to know as a Spring Professional. You’ll learn how Spring Framework uses modern design principles, practices, and concepts to keep you focused on building business applications.

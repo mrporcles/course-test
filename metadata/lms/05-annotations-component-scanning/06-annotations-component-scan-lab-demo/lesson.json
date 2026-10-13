@@ -1,0 +1,11 @@
+{
+  "id": "spring-essentials-modernized-component-scanning-lab-demo",
+  "slug": "spring-essentials-component-scanning-lab-demo-modernized",
+  "title": "Walkthrough - Annotations and Component Scanning Lab",
+  "status": "live",
+  "type": "article",
+  "duration": 360,
+  "settings": {
+    "manualCompletion": true
+  }
+}

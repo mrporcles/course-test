@@ -1,0 +1,11 @@
+{
+  "id": "spring-essentials-modernized-jdbc-jdbctemplate-basic",
+  "slug": "spring-essentials-jdbc-jdbctemplate-basic-modernized",
+  "title": "JdbcTemplate Basic Usage",
+  "status": "live",
+  "type": "article",
+  "duration": 270,
+  "settings": {
+    "manualCompletion": true
+  }
+}

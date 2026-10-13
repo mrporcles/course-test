@@ -1,0 +1,17 @@
+{
+  "id": "spring-essentials-modernized-component-scanning-stereotypes",
+  "slug": "spring-essentials-component-scanning-stereotypes-modernized",
+  "title": "Stereotype and Meta Annotations",
+  "status": "live",
+  "type": "article",
+  "duration": 210,
+  "settings": {
+    "manualCompletion": true,
+    "links": [
+      {
+        "text": "@Component and Stereotype Annotations",
+        "url": "https://docs.spring.io/spring-framework/docs/5.3.29/reference/html/core.html#beans-stereotype-annotations"
+      }
+    ]
+  }
+}

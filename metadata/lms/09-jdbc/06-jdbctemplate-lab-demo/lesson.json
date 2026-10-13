@@ -1,0 +1,11 @@
+{
+  "id": "spring-essentials-modernized-jdbc-jdbctemplate-lab-demo",
+  "slug": "spring-essentials-jdbc-jdbctemplate-lab-demo-modernized",
+  "title": "Walkthrough - JDBC Simplification with JdbcTemplate Lab",
+  "status": "live",
+  "type": "article",
+  "duration": 480,
+  "settings": {
+    "manualCompletion": true
+  }
+}

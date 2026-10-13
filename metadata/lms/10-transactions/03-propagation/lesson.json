@@ -1,0 +1,11 @@
+{
+  "id": "spring-essentials-modernized-transactions-propagation",
+  "slug": "spring-essentials-transactions-propagation-modernized",
+  "title": "Configure Transaction Propagation",
+  "status": "live",
+  "type": "article",
+  "duration": 330,
+  "settings": {
+    "manualCompletion": true
+  }
+}

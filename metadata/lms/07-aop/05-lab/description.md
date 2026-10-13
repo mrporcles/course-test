@@ -1,0 +1,1 @@
+Next, you’ll gain hands-on experience using AOP with Spring, and how to configure the completed reference domain. You’ll use different Pointcut Expressions and Aspects that help with the flow of the application behavior.

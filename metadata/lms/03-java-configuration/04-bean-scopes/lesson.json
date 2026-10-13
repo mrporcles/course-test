@@ -1,0 +1,17 @@
+{
+  "id": "spring-essentials-modernized-java-config-bean-scopes",
+  "slug": "spring-essentials-java-config-bean-scopes-modernized",
+  "title": "Bean Scopes",
+  "status": "live",
+  "type": "article",
+  "duration": 330,
+  "settings": {
+    "manualCompletion": true,
+    "links": [
+      {
+        "text": "Bean Scopes",
+        "url": "https://docs.spring.io/spring-framework/docs/5.3.29/reference/html/core.html#beans-factory-scopes"
+      }
+    ]
+  }
+}

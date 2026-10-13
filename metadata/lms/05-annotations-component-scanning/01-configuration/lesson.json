@@ -1,0 +1,37 @@
+{
+  "id": "spring-essentials-modernized-component-scanning-configuration",
+  "slug": "spring-essentials-component-scanning-configuration-modernized",
+  "title": "Annotation-based Configuration",
+  "status": "live",
+  "type": "article",
+  "duration": 510,
+  "settings": {
+    "manualCompletion": true,
+    "links": [
+      {
+        "text": "Why Field Injection is Evil",
+        "url": "https://odrotbohm.de/2013/11/why-field-injection-is-evil/"
+      },
+      {
+        "text": "Constructor Injection",
+        "url": "https://docs.spring.io/spring-framework/docs/5.3.29/reference/html/core.html#beans-constructor-injection"
+      },
+      {
+        "text": "Setter Injection",
+        "url": "https://docs.spring.io/spring-framework/docs/5.3.29/reference/html/core.html#beans-setter-injection"
+      },
+      {
+        "text": "Using @Autowired",
+        "url": "https://docs.spring.io/spring-framework/docs/5.3.29/reference/html/core.html#beans-autowired-annotation"
+      },
+      {
+        "text": "Using @Value to set Attributes",
+        "url": "https://docs.spring.io/spring-framework/docs/5.3.29/reference/html/core.html#beans-value-annotations"
+      },
+      {
+        "text": "JSR-250 @Resource Annotation",
+        "url": "https://docs.spring.io/spring-framework/docs/5.3.29/reference/html/core.html#beans-resource-annotation"
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "spring-essentials-modernized-more-java-config-spel",
+  "slug": "spring-essentials-more-java-config-spel-modernized",
+  "title": "Spring Expression Language (SpEL)",
+  "status": "live",
+  "type": "article",
+  "duration": 390,
+  "settings": {
+    "manualCompletion": true,
+    "links": [
+      {
+        "text": "Spring Expression Language (SpEL)",
+        "url": "http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html"
+      }
+    ]
+  }
+}

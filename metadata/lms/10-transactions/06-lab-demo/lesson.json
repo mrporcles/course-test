@@ -1,0 +1,11 @@
+{
+  "id": "spring-essentials-modernized-transactions-lab-demo",
+  "slug": "spring-essentials-transactions-lab-demo-modernized",
+  "title": "Walkthrough - Transaction Management with Spring Lab",
+  "status": "live",
+  "type": "article",
+  "duration": 390,
+  "settings": {
+    "manualCompletion": true
+  }
+}

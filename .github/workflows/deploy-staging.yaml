@@ -1,0 +1,29 @@
+name: deploy-staging
+run-name: Deploy ${{ github.ref_name }} to Staging
+concurrency: deploy-staging
+
+# Metadata-only course: merging metadata changes to main deploys them to staging.
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "metadata/**"
+      - "Makefile"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to staging
+    environment: staging
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Deploy LMS metadata
+        env:
+          PENGUINCTL_APIURL: ${{ secrets.PENGUINCTL_APIURL_STAGING }}
+          PENGUINCTL_APITOKEN: ${{ secrets.PENGUINCTL_APITOKEN_STAGING }}
+        run: make deploy-lms

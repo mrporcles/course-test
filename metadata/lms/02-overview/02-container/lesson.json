@@ -1,0 +1,17 @@
+{
+  "id": "spring-essentials-modernized-overview-container",
+  "slug": "container-modernized",
+  "title": "The Dependency Injection (DI) Container",
+  "status": "live",
+  "type": "article",
+  "duration": 300,
+  "settings": {
+    "manualCompletion": true,
+    "links": [
+      {
+        "text": "Dependency Injection Container",
+        "url": "https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-introduction"
+      }
+    ]
+  }
+}

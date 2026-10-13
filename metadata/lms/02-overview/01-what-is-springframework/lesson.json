@@ -1,0 +1,28 @@
+{
+  "id": "spring-essentials-modernized-overview-what-is-springframework",
+  "slug": "what-is-spring-framework-modernized",
+  "title": "What is the Spring Framework?",
+  "status": "live",
+  "type": "article",
+  "duration": 240,
+  "entitlements": [
+    "auth"
+  ],
+  "settings": {
+    "manualCompletion": true,
+    "links": [
+      {
+        "text": "Code",
+        "url": "https://github.com/spring-projects/spring-framework"
+      },
+      {
+        "text": "Maven Binaries",
+        "url": "http://mvnrepository.com/artifact/org.springframework"
+      },
+      {
+        "text": "Documentation",
+        "url": "https://docs.spring.io/spring-framework/docs/current/reference/html/"
+      }
+    ]
+  }
+}

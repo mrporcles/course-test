@@ -1,0 +1,11 @@
+{
+  "id": "spring-essentials-modernized-testing-profiles",
+  "slug": "spring-essentials-testing-profiles-modernized",
+  "title": "Configure Tests using Spring Profiles and working with Databases",
+  "status": "live",
+  "type": "article",
+  "duration": 330,
+  "settings": {
+    "manualCompletion": true
+  }
+}

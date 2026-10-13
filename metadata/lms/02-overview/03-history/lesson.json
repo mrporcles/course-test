@@ -1,0 +1,17 @@
+{
+  "id": "spring-essentials-modernized-overview-history",
+  "slug": "spring-essentials-overview-history-modernized",
+  "title": "Spring Framework History",
+  "status": "live",
+  "type": "article",
+  "duration": 240,
+  "settings": {
+    "manualCompletion": true,
+    "links": [
+      {
+        "text": "Philosophy",
+        "url": "https://docs.spring.io/spring-framework/docs/current/reference/html/overview.html#overview-philosophy"
+      }
+    ]
+  }
+}

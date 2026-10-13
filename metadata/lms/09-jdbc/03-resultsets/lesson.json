@@ -1,0 +1,11 @@
+{
+  "id": "spring-essentials-modernized-jdbc-resultsets",
+  "slug": "spring-essentials-jdbc-resultsets-modernized",
+  "title": "Working with ResultSets using Callbacks",
+  "status": "live",
+  "type": "article",
+  "duration": 390,
+  "settings": {
+    "manualCompletion": true
+  }
+}

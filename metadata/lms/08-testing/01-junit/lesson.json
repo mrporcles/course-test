@@ -1,0 +1,11 @@
+{
+  "id": "spring-essentials-modernized-testing-junit",
+  "slug": "spring-essentials-testing-junit-modernized",
+  "title": "JUnit 5",
+  "status": "live",
+  "type": "article",
+  "duration": 270,
+  "settings": {
+    "manualCompletion": true
+  }
+}

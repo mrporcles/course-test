@@ -1,0 +1,11 @@
+{
+  "id": "spring-essentials-modernized-jdbc-traditional-jdbctemplate",
+  "slug": "spring-essentials-jdbc-traditional-jdbctemplate-modernized",
+  "title": "Problems with traditional JDBC and into JdbcTemplate",
+  "status": "live",
+  "type": "article",
+  "duration": 360,
+  "settings": {
+    "manualCompletion": true
+  }
+}

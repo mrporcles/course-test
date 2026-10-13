@@ -1,0 +1,1 @@
+In this walkthrough, you’ll see how to use Spring Component Scanning to configure the completed reference domain, and configure the pieces of the application, then run a top-down system test to verify application behavior.

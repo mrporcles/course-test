@@ -1,0 +1,11 @@
+{
+  "id": "spring-essentials-modernized-java-config-lab",
+  "slug": "spring-essentials-java-config-lab-modernized",
+  "title": "Java Configuration Lab",
+  "status": "live",
+  "type": "article",
+  "duration": 1800,
+  "settings": {
+    "manualCompletion": true
+  }
+}

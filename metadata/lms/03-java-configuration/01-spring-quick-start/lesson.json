@@ -1,0 +1,17 @@
+{
+  "id": "spring-essentials-modernized-java-config-quickstart",
+  "slug": "spring-essentials-java-config-quickstart-modernized",
+  "title": "Quick Start with Java Configuration",
+  "status": "live",
+  "type": "article",
+  "duration": 360,
+  "settings": {
+    "manualCompletion": true,
+    "links": [
+      {
+        "text": "Introduction to the Spring IoC Container and Beans",
+        "url": "https://docs.spring.io/spring-framework/docs/5.3.29/reference/html/core.html#beans-introduction"
+      }
+    ]
+  }
+}

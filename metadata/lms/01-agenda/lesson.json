@@ -1,0 +1,12 @@
+{
+  "id": "spring-essentials-modernized-agenda",
+  "slug": "agenda-modernized",
+  "title": "Agenda",
+  "status": "live",
+  "type": "article",
+  "duration": 240,
+  "entitlements": [],
+  "settings": {
+    "manualCompletion": true
+  }
+}

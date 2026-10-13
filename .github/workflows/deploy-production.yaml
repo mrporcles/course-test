@@ -1,0 +1,23 @@
+name: deploy-production
+run-name: Deploy ${{ github.ref_name }} to Production
+concurrency: deploy-production
+
+# Production is always a manual step: run this workflow against a release tag.
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to production
+    environment: prod
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Deploy LMS metadata
+        env:
+          PENGUINCTL_APIURL: ${{ secrets.PENGUINCTL_APIURL_PROD }}
+          PENGUINCTL_APITOKEN: ${{ secrets.PENGUINCTL_APITOKEN_PROD }}
+        run: make deploy-lms

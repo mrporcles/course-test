@@ -1,0 +1,11 @@
+{
+  "id": "spring-essentials-modernized-transactions-rollback-testing",
+  "slug": "spring-essentials-transactions-rollback-testing-modernized",
+  "title": "Setup Rollback Rules and Testing support",
+  "status": "live",
+  "type": "article",
+  "duration": 270,
+  "settings": {
+    "manualCompletion": true
+  }
+}
