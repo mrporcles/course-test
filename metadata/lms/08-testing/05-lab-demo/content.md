@@ -11,7 +11,7 @@ This lesson walks through a hands-on lab that puts the "Configure Tests using Sp
 
 In every previous lab, the application context was created programmatically inside a `setUp` method. This lab (project 24) asks a simple question: is there a better way to do it? The answer is the Spring TestContext Framework already covered earlier in this module, now combined with profiles for a more dynamic test configuration. The lab is organized as a series of numbered to-dos, and this lesson follows that same order.
 
-## To-do 1: Replacing manual setup with `@SpringJUnitConfig`
+## To-do 1: Replacing manual setup with \@SpringJUnitConfig
 
 The starting test class has a `@BeforeEach` method that builds the application context and grabs a reference to the `RewardNetwork` bean, plus an `@AfterEach` method that closes the context afterward. The first to-do replaces all of that:
 
@@ -24,7 +24,7 @@ Running the test at this point is expected to fail, and it does: a red bar, caus
 
 The reason is straightforward: the application context is now being created automatically, but nothing is injecting `rewardNetwork` into the test. The fix is to annotate the field with `@Autowired`. Once that's in place and the test reruns, it passes — the context is created, `RewardNetwork` is retrieved from it, and it's made available inside the test automatically.
 
-## To-do 2: Annotating stub repositories with `@Repository`
+## To-do 2: Annotating stub repositories with \@Repository
 
 The project has stub repository classes (used as fakes) living in `rewards.internal`. This to-do annotates all three of them — `StubAccountRepository`, `StubRestaurantRepository`, and `StubRewardRepository` — with `@Repository`, without assigning any profile yet, simply to make them Spring-managed beans that are part of the application context.
 
@@ -39,7 +39,7 @@ expected single matching bean but found 2: stubAccountRepository, jdbcAccountRep
 
 Component scanning is now picking up *both* the existing JDBC repository implementations and the newly-annotated stub implementations. Both get registered in the application context, and when something needs an `AccountRepository` injected, Spring has no way to know which of the two beans to choose — an ambiguity error.
 
-## To-do 3: Disambiguating with `@Profile`
+## To-do 3: Disambiguating with \@Profile
 
 The fix is to put the JDBC and stub implementations into two different profiles, so only one set is active at a time:
 

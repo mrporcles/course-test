@@ -26,9 +26,9 @@ In production, your application wires together `TransferServiceImpl` and `JpaAcc
 
 Spring ships a small testing framework called the **`TestContext` framework**, whose job is to bootstrap the application context for you.
 
-Without it, you'd be tempted to create the application context yourself inside a `@BeforeEach` method — but that's wasteful, since it means rebuilding the whole context before every single test method. The `TestContext` framework creates the application context for you instead, based on the **`@ContextConfiguration`** annotation, which you use to point at the configuration class (or classes) you want loaded. All of this comes from the `spring-test` module, so it needs to be on your test classpath (packaged as `spring-test.jar`). See the Spring Framework reference for [integration testing](https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.html#integration-testing) and the [TestContext framework](https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.html#testcontext-framework).
+Without it, you'd be tempted to create the application context yourself inside a `@BeforeEach` method — but that's wasteful, since it means rebuilding the whole context before every single test method. The `TestContext` framework creates the application context for you instead, based on the **`@ContextConfiguration`** annotation, which you use to point at the configuration class (or classes) you want loaded. All of this comes from the `spring-test` module, so it needs to be on your test classpath (packaged as `spring-test.jar`). See the Spring Framework reference for <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.html#integration-testing" target="_blank" rel="noopener noreferrer">integration testing</a> and the <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.html#testcontext-framework" target="_blank" rel="noopener noreferrer">TestContext framework</a>.
 
-## Hooking Spring into JUnit 5: `@ExtendWith`
+## Hooking Spring into JUnit 5: \@ExtendWith
 
 JUnit 4 had **runners**, but runners came with a real limitation: you couldn't combine more than one at a time, so if two different frameworks each needed their own runner, you were stuck. JUnit 5 replaces that mechanism with **extensions** — and extensions don't have that limitation; you can apply several at once.
 
@@ -54,7 +54,7 @@ public class TransferServiceTests {
 
 `@ExtendWith(SpringExtension.class)` tells JUnit 5 to run the test with Spring support; `@ContextConfiguration` tells Spring which configuration class (or classes) to use to build the application context. Once that context is bootstrapped, `@Autowired` at the field level works exactly as it would in application code — here, injecting the real `TransferService`, which internally delegates down to the repository and, in turn, to whatever `DataSource` the test configuration provides. There's no need for a `@BeforeEach` method to manually construct `TransferService` — the injected bean is ready to test against directly.
 
-## `@SpringJUnitConfig`: one annotation instead of two
+## \@SpringJUnitConfig: one annotation instead of two
 
 Because `@ExtendWith(SpringExtension.class)` and `@ContextConfiguration` are almost always used together, Spring provides a single **composed annotation** that combines both: **`@SpringJUnitConfig`**.
 
@@ -107,7 +107,7 @@ public class JdbcAccountRepoTest {
 
 The inner `TestConfig` class imports all of `SystemTestConfig`'s beans via `@Import`, but also defines its own `DataSource` bean. Since a bean defined this way takes precedence over one already present from the imported configuration, the `DataSource` gets overridden just for this particular test class — without affecting `SystemTestConfig` itself, or any other test that uses it.
 
-## Application context caching, and `@DirtiesContext`
+## Application context caching, and \@DirtiesContext
 
 One of the real benefits of `@SpringJUnitConfig` (or the extension plus `@ContextConfiguration` combination underneath it) is that the application context it creates gets **cached**. That means the context — and the beans injected from it — isn't rebuilt before every test method; injection effectively happens once, and the same cached context and bean instances are reused across every test method in the class. Given that most Spring beans are meant to be stateless, immutable singletons, this is normally exactly what you want: there's no need for a fresh context per test.
 
@@ -124,7 +124,7 @@ public void testTransferLimitExceeded() {
 
 Annotating a test method this way forces the cached context to be closed and destroyed once that test finishes, and the next test that needs a context gets a freshly built one instead of the cached one. Be careful reaching for this, though — creating a new application context takes real time, and using `@DirtiesContext` more than necessary will slow your test suite down.
 
-## Test-only properties with `@TestPropertySource`
+## Test-only properties with \@TestPropertySource
 
 Just as `@PropertySource` lets your application load property files into the environment, `@TestPropertySource` lets a test do the same thing — either by supplying key/value pairs directly, or by pointing at a properties file. If you don't specify a location, it defaults to looking for `[classname].properties`:
 

@@ -14,7 +14,7 @@ So far, every example has configured all of its beans in a single configuration 
 
 This lesson focuses on splitting that configuration across multiple files, and then reassembling them into a single application context.
 
-## Combining files with `@Import`
+## Combining files with \@Import
 
 ![Creating an Application Context from Multiple Configurations](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/03-java-configuration/03-multiple-config-files/images/lesson9-import-multiple-configs.png)
 

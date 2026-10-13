@@ -13,7 +13,7 @@ Back in the "Initialization Phase (Part 2)" lesson, the initialization-phase dia
 
 This happens in two steps: evaluate the dependencies for every bean, then get each dependency that's needed — creating it first if it doesn't already exist. That second step is **recursive**: Spring keeps creating dependencies-of-dependencies until it reaches something it can actually inject.
 
-## Forcing dependency order with `@DependsOn`
+## Forcing dependency order with \@DependsOn
 
 Normally, Spring figures out ordering on its own by walking the dependency graph — you don't need to intervene. But if you want to be explicit about ordering anyway, `@DependsOn` lets you do that directly.
 

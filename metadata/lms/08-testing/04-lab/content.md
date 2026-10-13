@@ -39,7 +39,7 @@ If not,
 assuming you already have JDK 11 or 17 installed and Java IDE,
 you will need to do the following:
 
-1.  Download the **[lab codebase zip file](https://github.com/spring-academy/spring-pro-code/releases/download/core-spring-release-1.18.1/core-spring-labfiles.zip)**.
+1.  Download the **<a href="https://github.com/spring-academy/spring-pro-code/releases/download/core-spring-release-1.18.1/core-spring-labfiles.zip" target="_blank" rel="noopener noreferrer">lab codebase zip file</a>**.
 
 2.  Once you have downloaded the file, unzip it under
     a directory of your choice.
@@ -148,7 +148,7 @@ implementations - either Stubs or using JDBC.
   put all the repositories in this project into their correct
   profile - there are 6 repository classes to annotate in total.
 
-- Annotate the `RewardNetworkTests` class with @ActiveProfiles
+- Annotate the `RewardNetworkTests` class with `@ActiveProfiles`
   to make "stub" the active profile.
 
 - Rerun the test - it should work now.
@@ -231,7 +231,7 @@ resource (_jndi_ profile).
 **TODO-08**: Use inner class configuration
 
 - When no class is specified, Spring’s test framework will
-  look for an inner static class marked with @Configuration.
+  look for an inner static class marked with `@Configuration`.
   Since the `TestInfrastructureConfig` class is so small anyway,
   copy the entire class definition, including annotations, to an
   inner static class within the test class.

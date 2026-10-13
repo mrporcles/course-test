@@ -12,7 +12,7 @@ By the end of this lesson, you should be able to:
 
 Earlier in this course you saw how Spring profiles let you group beans so they can be enabled or disabled at runtime — useful for things like swapping a real database for a stub, depending on whether you're running in production or in a test. Normally you'd activate a profile by passing a system property at startup, but that technique doesn't translate well into a test environment, where there's no command line to pass properties to. This lesson introduces the annotation-based way of activating profiles specifically for tests, and pairs it with a second annotation for loading SQL scripts into a test database.
 
-## Activating profiles for a test: `@ActiveProfiles`
+## Activating profiles for a test: \@ActiveProfiles
 
 `@ActiveProfiles` is a new annotation, used in combination with `@SpringJUnitConfig` (or the underlying Spring extension you saw in the earlier testing lessons). It lets you define one or more profiles that should be active for a given test class.
 
@@ -64,7 +64,7 @@ public void successfulTransfer() {
 
 Annotating a test method with `@Sql` and pointing it at a script tells Spring to run that script against the data source before the annotated test method executes — a convenient way to load exactly the data a given test needs.
 
-## Using `@Sql` at the class level, and overriding it per test
+## Using \@Sql at the class level, and overriding it per test
 
 `@Sql` can also be placed on the class itself, in which case it applies to every test method in that class unless a specific method overrides it with its own `@Sql` annotation.
 
@@ -87,7 +87,7 @@ public class MainTests {
 
 In this example, `schema.sql` and `load-data.sql` run before every test in the class — except `transferError`, which defines its own pair of `@Sql` annotations instead. Notice that `@Sql` is a *repeatable* annotation: you can stack more than one on the same method. The second annotation on `transferError` also sets `executionPhase` to run its script *after* the test method — a handy way to clean up test data once a test finishes, rather than (or in addition to) setting it up beforehand.
 
-## `@Sql` options
+## \@Sql options
 
 `@Sql` has quite a few configuration options beyond just which script to run:
 

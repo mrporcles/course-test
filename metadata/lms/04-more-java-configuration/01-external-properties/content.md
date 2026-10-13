@@ -78,7 +78,7 @@ public class DbConfig {
 
 The `Environment` is passed in as a method argument, and `getProperty(...)` fetches each value by key. Now, changing the connection details means editing `db.properties` — no recompiling, and no touching this configuration class at all.
 
-## Telling Spring about your property file: `@PropertySource`
+## Telling Spring about your property file: \@PropertySource
 
 Injecting the `Environment` only helps once Spring actually knows your property file exists. Environment variables and JVM system properties are always available automatically, but a custom property file has to be explicitly registered — this is called a **property source**.
 
@@ -101,7 +101,7 @@ public class ApplicationConfig {
 
 Both property sources shown above get added to the environment, and once they are, any property inside either file becomes available through `env.getProperty(...)`, in addition to the environment variables and system properties that are already there automatically.
 
-## A lighter alternative: `@Value`
+## A lighter alternative: \@Value
 
 If you don't want to inject the `Environment` component directly, `@Value` gives you a more direct route to the same values — asking the environment for one specific value at the point where you need it.
 

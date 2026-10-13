@@ -51,7 +51,7 @@ public class DevConfig {
 
 Everything inside `DevConfig` now belongs to the `embedded` profile. Nothing in this configuration class will be used unless `embedded` is chosen as one of the active profiles. (H2 and Derby are also supported as embedded database types, alongside HSQL shown here.)
 
-### At the `@Bean` method level
+### At the \@Bean method level
 
 For finer-grained control, you can move `@Profile` down to individual `@Bean` methods instead of the whole class:
 

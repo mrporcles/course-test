@@ -69,7 +69,7 @@ With the wiring in place, the `LoggingAspectTest` (found under the test package,
 
 The next test calls a method on the reward network that, under the hood, calls two repository "find" methods: one to find an account by its credit card number, and one to find a restaurant by its merchant number. Since the logging aspect matches both, running this test should produce not just a green bar, but **two matching lines** in the console — one for each find call. Running it confirms both: the test passes, and the last two lines in the console are exactly the ones logged by the logging aspect.
 
-## To-do 7: Add a second advice — this time, `@Around`
+## To-do 7: Add a second advice — this time, \@Around
 
 The second requirement is different in kind: instead of logging before a method runs, it needs to **time** how long each repository "update" method takes. That means running code both before and after the target — which calls for around advice rather than before advice.
 
@@ -103,7 +103,7 @@ Calling `repositoryMethod.proceed()` inside the `try` block is what actually del
 
 With two aspects now in play, the test's expected number of console matches changes from two to four: two lines from the "find" logging advice, and two more from the "update" timing advice. Looking again at the reward network method under test, it calls two find methods *and* two update methods, so four matching log lines are expected in total. Running the test produces the green bar plus all four expected lines — two from the before advice, two from the around advice.
 
-## To-do 10 (optional): Add exception logging with `@AfterThrowing`
+## To-do 10 (optional): Add exception logging with \@AfterThrowing
 
 The optional section adds a third advice, this time to log exceptions thrown by repository methods. Since the goal is specifically to react to a thrown exception — not to run before or after regardless of outcome — this calls for `@AfterThrowing`.
 

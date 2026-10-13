@@ -64,7 +64,7 @@ A transaction now starts automatically before the test method runs — but inste
 
 One detail worth remembering: the test framework only rolls back the **outermost** transaction — the one it created for the test itself. If your test (or the code it calls) starts an independent transaction of its own — for example, through `REQUIRES_NEW`, as covered in the "Configure Transaction Propagation" lesson — that independent transaction is not automatically rolled back by the test infrastructure. It commits on its own terms, exactly like it would outside a test. (The lab in the "Walkthrough - Transaction Management with Spring Lab" lesson walks through exactly this scenario.)
 
-## Overriding the test's rollback with `@Commit`
+## Overriding the test's rollback with \@Commit
 
 If you want a specific test method to keep its default, non-test behavior — committing instead of rolling back — annotate it with `@Commit`.
 

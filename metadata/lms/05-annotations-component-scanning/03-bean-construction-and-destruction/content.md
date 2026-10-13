@@ -17,7 +17,7 @@ Worth noting: these are not Spring-specific annotations. They're defined by **JS
 
 > **Package name note:** starting with Spring Framework 6 / Spring Boot 3 (the `jakarta.*` namespace migration), and continuing through the current Spring Framework 7 / Spring Boot 4 generation (now on Jakarta EE 11), these annotations live in `jakarta.annotation`. Older Spring versions (Spring Framework 5.x and earlier, matching this course) used `javax.annotation` instead — the annotations and their behavior are identical, only the package name changed.
 
-## `@PostConstruct`: running logic after injection
+## \@PostConstruct: running logic after injection
 
 `@PostConstruct` runs during the initialization phase, specifically **right after all dependency injection has completed** for that bean.
 
@@ -44,7 +44,7 @@ public class JdbcAccountRepository {
 
 If you tried to run this cache-population logic directly in the constructor, it would be too early — the constructor runs before setter injection happens, so `dataSource` would still be `null`, and you'd get a `NullPointerException`. `@PostConstruct` exists precisely to solve that ordering problem: the full sequence Spring guarantees is **constructor injection, then setter injection, then any `@PostConstruct` methods**. By the time `populateCache()` runs, every dependency — regardless of which injection style supplied it — is already in place.
 
-## `@PreDestroy`: cleaning up before shutdown
+## \@PreDestroy: cleaning up before shutdown
 
 `@PreDestroy` is the mirror image: it runs during the destruction phase, when the application context is closed.
 

@@ -44,7 +44,7 @@ If not,
 assuming you already have JDK 11 or 17 installed and Java IDE,
 you will need to do the following:
 
-1.  Download the **[lab codebase zip file](https://github.com/spring-academy/spring-pro-code/releases/download/core-spring-release-1.18.1/core-spring-labfiles.zip)**.
+1.  Download the **<a href="https://github.com/spring-academy/spring-pro-code/releases/download/core-spring-release-1.18.1/core-spring-labfiles.zip" target="_blank" rel="noopener noreferrer">lab codebase zip file</a>**.
 
 2.  Once you have downloaded the file, unzip it under
     a directory of your choice.
@@ -89,7 +89,7 @@ lab instructions by TODO number if you need more help.
 
 ## Instructions
 
-### Implement a Logging @Before Aspect
+### Implement a Logging \@Before Aspect
 
 #### Check Console Output
 
@@ -144,7 +144,7 @@ You’ll use the annotated `@Aspect` definition style.
   Component scanning can be very effective for aspects, so mark this
   class with the `@Component` annotation.
 
-- Optionally place an @Autowired annotation on the constructor.
+- Optionally place an `@Autowired` annotation on the constructor.
   (It is optional since there is only a single constructor in the class.)
 
   You will see where this dependency comes from and turn on the actual
@@ -234,7 +234,7 @@ Spring configuration needed to weave it into your application.
   suggested by these notes (just `find*` methods), try to make it more
   specific to match `find*` methods on `*Repository` classes.
 
-### Implement an @Around Performance Monitor Aspect
+### Implement an \@Around Performance Monitor Aspect
 
 For the second non-functional requirement implemented in this lab, you
 will build upon the `LoggingAspect`, and adding behavior to log timing

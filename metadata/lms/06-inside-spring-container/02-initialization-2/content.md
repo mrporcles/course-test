@@ -26,7 +26,7 @@ You can override this default by marking a bean **lazy**, which postpones its cr
 
 Once a bean is created, it goes through a **post-processing** phase. Unlike the bean-definition-level post-processing you may have seen with `BeanFactoryPostProcessor`, this post-processing happens at the *bean* level — meaning these post-processors get access to every single bean instance in the application context, not just definitions. When post-processing finishes, the bean is fully configured and ready to use.
 
-## Initializers: where `@PostConstruct` actually runs
+## Initializers: where \@PostConstruct actually runs
 
 One part of this post-processing phase is the **initializers** step — an extension point you've already seen the effect of without seeing the mechanism. Recall `@PostConstruct` from the "Adding Startup and Shutdown Behaviors" lesson: that's exactly where those annotated methods actually get called, along with any method named in a `@Bean` annotation's `init` argument.
 

@@ -41,7 +41,7 @@ Spring makes programming Java quicker, easier, and safer, and it can be used to 
 - **Batch** — automated, offline processing of data
 - **Serverless** — thanks to support for GraalVM and native compilation, Spring applications can scale to zero when there's no demand
 
-If you want to explore the full portfolio of Spring projects, `https://spring.io/projects` is worth bookmarking.
+If you want to explore the full portfolio of Spring projects, <a href="https://spring.io/projects" target="_blank" rel="noopener noreferrer">https://spring.io/projects</a> is worth bookmarking.
 
 ## A short history lesson: Spring and VMware
 

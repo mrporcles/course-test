@@ -6,7 +6,7 @@ By the end of this lesson, you should be able to:
 - Scope `@ComponentScan` correctly, and explain why scanning too broadly is a real performance problem
 - Decide, with concrete criteria, when to reach for annotations versus Java-based configuration in the same project
 
-## When you actually need `@Autowired` on a constructor
+## When you actually need \@Autowired on a constructor
 
 the "Annotation-based Configuration" lesson introduced `@Autowired` for constructor injection, but it's easy to over-apply it out of habit. There are really only three cases:
 

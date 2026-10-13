@@ -52,7 +52,7 @@ Note that this bean depends on a `DataSource` already being defined elsewhere in
 
 (The JTA equivalent looks similar in shape but does a JNDI lookup to obtain the `DataSource` from an application server, and constructs a `JtaTransactionManager` instead — again, not the focus here.)
 
-## Step 2: `@Transactional`
+## Step 2: \@Transactional
 
 With a transaction manager in the application context, the next step is marking which methods should actually run inside a transaction, using the `@Transactional` annotation:
 
@@ -100,7 +100,7 @@ Once a transaction is under way, Spring binds its transactional context to the *
 - `JdbcTemplate`, used inside an `@Transactional` method, automatically checks the thread-local for a current connection — if one exists, it reuses it and participates in the same transaction, rather than opening a new one. (Hibernate sessions and JTA work the same way for their respective technologies.)
 - You *can* access this manually via `DataSourceUtils.getConnection(dataSource)`, which returns the thread-bound connection if one exists, or falls back to getting one from the `DataSource` otherwise — but you'll rarely need to reach for this yourself, since Spring handles it for you underneath `@Transactional`.
 
-## Combining class-level and method-level `@Transactional`
+## Combining class-level and method-level \@Transactional
 
 `@Transactional` can be placed on an entire class (or interface, since Spring Framework 5), which makes every method in that class transactional and inherits whatever settings are defined at the class level:
 
@@ -135,7 +135,7 @@ public class RewardNetworkImpl implements RewardNetwork {
 
 Here, the class-level default gives every method a 60-second timeout. `updateConfirmation` overrides that specifically to 45 seconds, while `rewardAccountFor` keeps the class-level default of 60.
 
-## A common trap: two different `@Transactional` annotations
+## A common trap: two different \@Transactional annotations
 
 There are actually **two** `@Transactional` annotations available on the classpath: one in `jakarta.transaction` (the standard JTA version — `javax.transaction` on Spring Framework 5.x and earlier) and one in Spring's own package. If you import the standard JTA `@Transactional`, you'll find you can't override properties like propagation, since that version simply doesn't expose them. Always make sure you're importing **Spring's** `@Transactional` — this is called out specifically because it's a genuinely common mistake to import the wrong one, especially in lab exercises.
 

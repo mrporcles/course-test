@@ -49,11 +49,11 @@ The lab then deliberately changes tack on `JdbcRestaurantRepository`: instead of
 
 Re-running the test at this point fails with a `NullPointerException` — the cache was never populated, because the code that used to do it lived in a constructor that Spring no longer calls.
 
-## To-do 9: Fix it with `@PostConstruct`
+## To-do 9: Fix it with \@PostConstruct
 
 The fix is exactly the lifecycle annotation from the "Adding Startup and Shutdown Behaviors" lesson: annotate `populateRestaurantCache()` with `@PostConstruct`. Since `@PostConstruct` methods run only after all dependency injection (constructor and setter) has completed, the `DataSource` is guaranteed to already be set by the time the cache gets populated. Re-running the test produces a green bar again — proof that `@PostConstruct` fired at exactly the right moment.
 
-## To-dos 10–11: Clear the cache with `@PreDestroy`
+## To-dos 10–11: Clear the cache with \@PreDestroy
 
 The mirror-image problem: `clearRestaurantCache()` needs to run when the application shuts down. A `System.out.println` gets added inside that method first, purely so its execution is visible in the console — then the method is annotated `@PreDestroy`. Re-running the test and inspecting the console confirms the cache-clearing message appears as the very last line of output, proving the destroy callback fired correctly when the context closed.
 

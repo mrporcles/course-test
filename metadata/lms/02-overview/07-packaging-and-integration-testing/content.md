@@ -53,7 +53,7 @@ Running `mvn package` and looking in the `target` directory shows the size diffe
 
 You'll use the larger, self-contained JAR to actually run the application with `java -jar`.
 
-## Integration testing with `@SpringBootTest`
+## Integration testing with \@SpringBootTest
 
 Earlier in the course you saw how to bootstrap an application context in a test environment using `@SpringJUnitConfig`. That annotation picks a set of configuration classes and builds a context from them — but it doesn't apply any auto-configuration.
 
@@ -78,7 +78,7 @@ public class TransferServiceTests {
 
 `@SpringBootTest`'s `classes` attribute points at your entry point — here, a class annotated with `@SpringBootApplication`. Because `@SpringBootApplication` enables auto-configuration, the application context built for this test is created the *same way* a real Spring Boot application would build it: the same auto-configuration, the same `application.properties`, everything. In terms of how you actually write the test, nothing else changes — you autowire beans from the context and use them exactly as before. The only thing that changed is the annotation controlling how that context gets built.
 
-## Letting `@SpringBootTest` find its own configuration
+## Letting \@SpringBootTest find its own configuration
 
 You can safely omit `classes` entirely from `@SpringBootTest`, because it's able to auto-discover your entry point:
 

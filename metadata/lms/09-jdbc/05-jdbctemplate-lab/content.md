@@ -36,7 +36,7 @@ If not,
 assuming you already have JDK 11 or 17 installed and Java IDE,
 you will need to do the following:
 
-1.  Download the **[lab codebase zip file](https://github.com/spring-academy/spring-pro-code/releases/download/core-spring-release-1.18.1/core-spring-labfiles.zip)**.
+1.  Download the **<a href="https://github.com/spring-academy/spring-pro-code/releases/download/core-spring-release-1.18.1/core-spring-labfiles.zip" target="_blank" rel="noopener noreferrer">lab codebase zip file</a>**.
 
 2.  Once you have downloaded the file, unzip it under
     a directory of your choice.

@@ -98,7 +98,7 @@ There are two major AOP technologies worth knowing about:
 - **AspectJ** — the original AOP technology (first released in 1995). It's a full-blown, standalone Aspect-Oriented Programming language. It weaves aspects in by modifying **bytecode**, a technique called **load-time weaving**: it rewrites the bytecode as classes are loaded into the classloader.
 - **Spring AOP** — a Java-based AOP framework that integrates with AspectJ (you'll actually use AspectJ's *annotations* and *expression language*), but weaves aspects differently: it uses **dynamic proxies** instead of bytecode modification. It's generally simpler than full AspectJ, focuses specifically on solving enterprise problems, and requires no extra configuration to integrate with the Spring container.
 
-For more detail, see the Spring Framework Reference, Aspect Oriented Programming: https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#aop
+For more detail, see the Spring Framework Reference, Aspect Oriented Programming: <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#aop" target="_blank" rel="noopener noreferrer">https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#aop</a>
 
 This course focuses on Spring AOP going forward — you'll see exactly how the proxy-based weaving works in the next lesson.
 

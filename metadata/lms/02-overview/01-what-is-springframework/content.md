@@ -17,9 +17,9 @@ This lesson stays at the conceptual level — no implementation details yet. Tho
 
 All of Spring's source and binary code is freely available, under an Apache 2 license:
 
-- Source code: `https://github.com/spring-projects/spring-framework`
-- Binaries: available at Maven Central
-- Documentation: `https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle`
+- Source code: <a href="https://github.com/spring-projects/spring-framework" target="_blank" rel="noopener noreferrer">https://github.com/spring-projects/spring-framework</a>
+- Binaries: available at <a href="https://central.sonatype.com/namespace/org.springframework" target="_blank" rel="noopener noreferrer">Maven Central</a>
+- Documentation: <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle" target="_blank" rel="noopener noreferrer">https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle</a>
 
 Being open source also means there's a large community constantly contributing to the framework. A quick practical note: the use of a transitive dependency management system (Maven, Gradle, or Ant/Ivy) is recommended for any Java application that pulls in Spring — you'll rely on this throughout the course to manage the framework's own dependencies for you.
 
@@ -53,7 +53,7 @@ Spring provides framework classes, interfaces, and annotations to simplify worki
 
 ## Where to find the rest of the portfolio
 
-As an open source project, the whole Spring portfolio lives at `github.com/spring-projects`. The Spring Framework you're learning here is just the core — beyond it you'll find sibling projects like Spring Data and Spring Security, all under an Apache 2 license and published to Maven Central. Each project in the portfolio has its own dedicated documentation.
+As an open source project, the whole Spring portfolio lives at <a href="https://github.com/spring-projects" target="_blank" rel="noopener noreferrer">github.com/spring-projects</a>. The Spring Framework you're learning here is just the core — beyond it you'll find sibling projects like Spring Data and Spring Security, all under an Apache 2 license and published to Maven Central. Each project in the portfolio has its own dedicated documentation.
 
 ## Recap
 

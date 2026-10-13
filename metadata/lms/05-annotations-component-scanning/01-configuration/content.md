@@ -28,7 +28,7 @@ The term "annotation-based configuration" can be a little misleading, since the 
 
 Annotating a class with `@Component` only works if Spring actually goes looking for it. That's the job of **component scanning**: on your configuration class, `@ComponentScan` tells Spring to scan a base package — and all of its sub-packages — for any class annotated with `@Component` (or a related stereotype annotation, covered in the "Stereotype and Meta Annotations" lesson). Every class it finds gets initialized and added to the application context automatically.
 
-## Dependency injection with `@Autowired`
+## Dependency injection with \@Autowired
 
 With Java configuration, dependency injection happens through method parameters on `@Bean` methods. With annotations, the equivalent tool is `@Autowired`, which works at three levels: constructor, method, and field.
 
@@ -59,7 +59,7 @@ In practice, you'll likely use both. It helps to know what each one actually giv
 
 The recommendation: prefer constructor injection, since it makes required dependencies explicit and immutable. But don't fight the design — if you're extending a class built around setter injection, use setter injection. Above all, be consistent across your project team.
 
-## Resolving ambiguity with `@Qualifier`
+## Resolving ambiguity with \@Qualifier
 
 Autowiring by type runs into trouble the moment two beans implement the same interface. Take a `TransferService` that depends on `AccountRepository`, where both a `JpaAccountRepository` and a `JdbcAccountRepository` are annotated `@Component` and present in the context. Spring can't tell which one you want — and at startup you'll get a `NoSuchBeanDefinitionException`, somewhat confusingly, since there isn't zero matching beans, there are two. The message will say Spring expected a single bean but found two.
 
@@ -99,11 +99,11 @@ If you don't explicitly name a component, Spring auto-generates one: the class n
 
 The broader recommendation, again, is to avoid needing named disambiguation in the first place — usually it's rare to have two beans of the same type in an `ApplicationContext`, and profiles are usually the better way to solve that problem than leaning on qualifiers everywhere.
 
-## Injecting configuration values with `@Value`
+## Injecting configuration values with \@Value
 
 Beyond wiring beans together, `@Autowired` combined with `@Value` lets you pull values out of the environment — properties, environment variables, and so on — instead of injecting a bean from the context. This works the same way at the constructor, method, or field level, though the field-level option is discouraged for the same reasons as field injection generally.
 
-## Delayed initialization with `@Lazy`
+## Delayed initialization with \@Lazy
 
 By default, every bean is created eagerly, right when the application context starts — deliberately, so misconfiguration surfaces immediately as a fail-fast startup error rather than a mysterious runtime failure later. Occasionally, though, a bean is expensive to initialize, or depends on something that isn't ready yet, and you'd rather defer its creation until the first time it's actually needed. `@Lazy` does exactly that.
 

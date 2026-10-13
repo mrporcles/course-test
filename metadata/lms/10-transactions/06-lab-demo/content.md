@@ -15,7 +15,7 @@ Up to now, every call this course's `RewardNetworkImpl` class made to the databa
 
 As always, to-do 0 in the project sets the goals: enable transactions, add transactional behavior to a method, exercise different propagation levels, and use transactions inside tests.
 
-## To-do 1: Annotate `rewardAccountFor` with `@Transactional`
+## To-do 1: Annotate `rewardAccountFor` with \@Transactional
 
 `rewardAccountFor` on `RewardNetworkImpl` performs several selects, an update, and an insert — several separate interactions with the database that need to succeed or fail together. That makes it a natural candidate to be transactional.
 
@@ -83,7 +83,7 @@ The next to-do highlights a different failure mode. Two test methods both call `
 
 Running the two tests confirms it: the first one passes, the second one fails with a red bar, purely because of leftover state committed by the first.
 
-## To-do 10: Fix it with `@Transactional` at the class level
+## To-do 10: Fix it with \@Transactional at the class level
 
 The fix is the testing pattern from the "Setup Rollback Rules and Testing support" lesson: add `@Transactional` (the Spring-specific annotation) at the test class level.
 
