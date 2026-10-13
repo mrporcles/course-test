@@ -73,7 +73,7 @@ Copy-pasting behavior like this is a warning sign. If you ever need to change ho
 
 Zooming out, here's how a system evolves if cross-cutting concerns are never pulled out into their own modules:
 
-![System Evolution Without Modularization](images/lesson24-system-evolution-without-modularization.png)
+![System Evolution Without Modularization](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/07-aop/01-what-aop-solve/images/lesson24-system-evolution-without-modularization.png)
 
 Each of `BankService`, `CustomerService`, and `ReportingService` mixes its blue business logic together with security, transaction, and logging code. **Code scattering** is the same behavior appearing again in every module. **Code tangling** is what's happening *within* any one module — business logic, security, transactions, and logging all mixed together in the same component.
 
@@ -87,7 +87,7 @@ AOP eliminates both of these problems with a three-step approach:
 
 Applying that to the same system:
 
-![System Evolution: AOP based](images/lesson24-system-evolution-aop-based.png)
+![System Evolution: AOP based](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/07-aop/01-what-aop-solve/images/lesson24-system-evolution-aop-based.png)
 
 The three services are now clean — just business logic. Security, Transaction, and Logging each become their own independent aspect, completely decoupled from the business logic and from each other. Weaving is what applies these aspects on top of the business logic at the right points.
 

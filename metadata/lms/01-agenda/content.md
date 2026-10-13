@@ -19,7 +19,7 @@ The training is organized into two broad parts.
 
 The first part is focused on the Spring container — also called the application context. You'll start with an introduction to Spring itself, then move into configuring the application context. You'll see different configuration styles, such as Java configuration and annotation-based configuration. (XML configuration won't be covered — the industry has been moving away from it for some time.) You'll also learn about the bean lifecycle: how the container manages your components through their initialization, use, and destruction phases.
 
-![Course Agenda, part 1](images/lesson1-agenda-part1.png)
+![Course Agenda, part 1](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/01-agenda/images/lesson1-agenda-part1.png)
 
 The second part builds on that foundation:
 
@@ -27,7 +27,7 @@ The second part builds on that foundation:
 - **Testing** — testing is essential, and you'll test both your application code and your application context using JUnit 5 and Spring's test context framework.
 - **The data access layer** — you'll see how Spring simplifies the JDBC API, including the `JdbcTemplate` and Spring's transaction support.
 
-![Course Agenda, part 2](images/lesson1-agenda-part2.png)
+![Course Agenda, part 2](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/01-agenda/images/lesson1-agenda-part2.png)
 
 ## What can Spring do?
 

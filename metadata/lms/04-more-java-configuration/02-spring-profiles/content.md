@@ -16,7 +16,7 @@ Your application will typically need different configuration depending on the en
 
 A profile is really just a name — think of it as a namespace, or a group. It lets you group bean definitions together so that they're only included in the application context under certain conditions.
 
-![Profiles - Beans can be grouped into Profiles](images/lesson13-profiles-grouped.png)
+![Profiles - Beans can be grouped into Profiles](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/04-more-java-configuration/02-spring-profiles/images/lesson13-profiles-grouped.png)
 
 In the diagram above, some beans — like the transfer service and the account service — don't belong to any profile at all, so they're **always** initialized, regardless of anything else. Other beans, though, are configured inside a specific profile.
 
@@ -130,7 +130,7 @@ The answer: the first and the second. The first always gets included, since it d
 
 Recall `@PropertySource` from the "Use External Properties" lesson — the way to load a property file into the `Environment`. It can be combined directly with `@Profile`, so that a given property file is only loaded when a specific profile is active.
 
-![Property Source selection](images/lesson13-property-source-selection.png)
+![Property Source selection](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/04-more-java-configuration/02-spring-profiles/images/lesson13-property-source-selection.png)
 
 ```java
 @Configuration

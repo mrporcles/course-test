@@ -46,7 +46,7 @@ With to-dos 1–3 done, the lab has the reward network tests run with debug logg
 
 Since `rewardAccountFor` now runs inside a transaction, every one of its several database interactions should reuse the *same* connection — acquired once, right before entering the transactional method, and released once, right after it finishes. Running the test produces a green bar, and the console log confirms exactly that: one connection acquired, one connection released, for the whole method.
 
-![Transaction Management with Spring Lab — instructions overview](images/lesson42-lab-overview.png)
+![Transaction Management with Spring Lab — instructions overview](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/10-transactions/06-lab-demo/images/lesson42-lab-overview.png)
 
 ## To-do 5: Watch a manual rollback take down committed work
 
@@ -62,7 +62,7 @@ Because `rewardAccountFor` never got its own, independent transaction, everythin
 
 To fix this, the lab changes `rewardAccountFor`'s propagation to `REQUIRES_NEW`:
 
-![RewardNetworkImpl with propagation changed to REQUIRES_NEW](images/lesson42-requires-new-fix-in-ide.png)
+![RewardNetworkImpl with propagation changed to REQUIRES_NEW](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/10-transactions/06-lab-demo/images/lesson42-requires-new-fix-in-ide.png)
 
 ```java
 @Transactional(propagation = Propagation.REQUIRES_NEW)

@@ -34,7 +34,7 @@ Looking at that implementation, `rewardAccountFor` delegates to a set of reposit
 
 Before writing any code, the lab walks through the sequence diagram `rewardAccountFor` needs to implement:
 
-![Reward Account For sequence diagram](images/lesson5-reward-account-for-sequence-diagram.png)
+![Reward Account For sequence diagram](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/02-overview/06-lab-demo/images/lesson5-reward-account-for-sequence-diagram.png)
 
 Reading the diagram left to right:
 
@@ -71,7 +71,7 @@ The final piece — returning the `RewardConfirmation` — comes directly from w
 
 With the method written, the lab has you verify it using an existing test class, `RewardNetworkImplTest`, found under `src/test/java` in the `rewards.internal` package.
 
-![RewardNetworkImplTest setup and test method](images/lesson5-rewardnetworkimpltest-setup-and-test.png)
+![RewardNetworkImplTest setup and test method](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/02-overview/06-lab-demo/images/lesson5-rewardnetworkimpltest-setup-and-test.png)
 
 The test's `setUp()` method creates stub repositories for the account, restaurant, and reward repositories — no framework, no external dependencies, just plain Java stubs with canned test data — and constructs a `RewardNetworkImpl` directly from them:
 

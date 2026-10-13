@@ -16,7 +16,7 @@ the "Initialization Phase (Part 1)" lesson covered the first part of the initial
 
 Before Spring can create a bean, it has to know what that bean depends on, because a bean's dependencies must exist before the bean itself can be constructed and wired. So the first thing Spring does is evaluate the dependencies for every bean.
 
-![Bean Creation Sequence of Events - Singleton](images/lesson21-bean-creation-sequence.png)
+![Bean Creation Sequence of Events - Singleton](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/06-inside-spring-container/02-initialization-2/images/lesson21-bean-creation-sequence.png)
 
 Beans are created **eagerly** by default — Spring builds all singleton beans up front, at container startup, rather than waiting until they're first used. This is a deliberate design choice: it means any misconfiguration in your application context (a missing dependency, a circular reference, whatever) surfaces immediately at startup instead of showing up later at runtime. This "fail fast" behavior is one of the reasons Spring applications tend to either start cleanly or fail loudly — not something you want to discover from a stack trace in production.
 
@@ -36,7 +36,7 @@ The mechanism behind this is itself a `BeanPostProcessor` that Spring registers 
 
 `BeanPostProcessor` is a genuinely powerful extension point in Spring: it can modify *any* bean, in *any* way, because it runs against every bean in the container.
 
-![BeanPostProcessor Extension Point](images/lesson21-beanpostprocessor-extension-point.png)
+![BeanPostProcessor Extension Point](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/06-inside-spring-container/02-initialization-2/images/lesson21-beanpostprocessor-extension-point.png)
 
 It can act both before and after initialization:
 
@@ -80,7 +80,7 @@ Two details matter here. First, don't forget to return the bean — if you forge
 
 Whether you configure your application with Java config or with annotations, both styles funnel through the exact same lifecycle underneath.
 
-![Configuration Lifecycle](images/lesson21-configuration-lifecycle.png)
+![Configuration Lifecycle](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/06-inside-spring-container/02-initialization-2/images/lesson21-configuration-lifecycle.png)
 
 The steps line up like this:
 

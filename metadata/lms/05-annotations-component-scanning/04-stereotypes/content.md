@@ -11,7 +11,7 @@ By the end of this lesson, you should be able to:
 
 Component scanning, as covered in the "Annotation-based Configuration" lesson, doesn't only look for `@Component`. It also scans for any annotation that is *itself* annotated with `@Component` — these are called **stereotype annotations**.
 
-![Stereotype Annotations](images/lesson18-stereotype-annotations.png)
+![Stereotype Annotations](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/05-annotations-component-scanning/04-stereotypes/images/lesson18-stereotype-annotations.png)
 
 `@Service` is one of them. Looking at its own source code, `@Service` is annotated with `@Component`:
 
@@ -33,7 +33,7 @@ public class TransferServiceImpl implements TransferService { ... }
 
 Spring's core framework ships with a stereotype annotation for each conventional application layer, all ultimately rooted in `@Component`:
 
-![Predefined Stereotype Annotations](images/lesson18-predefined-stereotype-annotations.png)
+![Predefined Stereotype Annotations](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/05-annotations-component-scanning/04-stereotypes/images/lesson18-predefined-stereotype-annotations.png)
 
 - **`@Service`** — service classes
 - **`@Repository`** — data access classes

@@ -22,7 +22,7 @@ Spring achieves this by applying a few key principles, all of which you'll see r
 
 Very few real applications consist of a single, self-contained component. Usually one component has to delegate to others to get its job done.
 
-![DI Example: Banking Application Configuration](images/lesson3-banking-application-configuration.png)
+![DI Example: Banking Application Configuration](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/02-overview/02-container/images/lesson3-banking-application-configuration.png)
 
 Here, a `TransferService` needs to delegate to a `TransferRepository` and an `AccountRepository` to actually carry out a money transfer.
 
@@ -42,7 +42,7 @@ Traditionally, in plain Java, you'd answer the "how do I get an instance" questi
 
 This is exactly the gap the DI container fills. Instead of components reaching out and constructing their own dependencies, the container assembles everything for you.
 
-![Money Transfer System Assembly](images/lesson3-money-transfer-system-assembly.png)
+![Money Transfer System Assembly](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/02-overview/02-container/images/lesson3-money-transfer-system-assembly.png)
 
 The diagram's red box represents the Spring container. It configures both the `TransferServiceImpl` and the `JdbcAccountRepository`, takes care of initializing each one, and wires them together. The equivalent hand-written code would look like this:
 
@@ -63,7 +63,7 @@ Notice the order: the repository (Part 1) is created first, and only then is the
 
 If you look at the components themselves, they're just POJOs — they don't have any dependency on the framework.
 
-![Parts are Just Plain Old Java Objects (POJOs)](images/lesson3-pojos-code.png)
+![Parts are Just Plain Old Java Objects (POJOs)](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/02-overview/02-container/images/lesson3-pojos-code.png)
 
 ```java
 public class JdbcAccountRepository implements AccountRepository {
@@ -86,7 +86,7 @@ public class TransferServiceImpl implements TransferService {
 
 Because the service only depends on the interface, changing the underlying implementation is simple — you don't touch `TransferServiceImpl` at all, you just re-implement (or add a new implementation of) `AccountRepository`.
 
-![Swapping Out Part Implementations](images/lesson3-swapping-implementations-jpa.png)
+![Swapping Out Part Implementations](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/02-overview/02-container/images/lesson3-swapping-implementations-jpa.png)
 
 ```java
 // (1) swap in a different repository implementation

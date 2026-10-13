@@ -106,7 +106,7 @@ All of the old manual connection-handling code, along with variables that are no
 
 This to-do introduces `JdbcTemplate`'s other major callback interface. Where `RowMapper` maps *one row at a time* (a one-to-one mapping), **`ResultSetExtractor`** maps an *entire result set* into a single object (many-to-one) — the right tool when a full `Account`, built from multiple rows or a more involved read of the cursor, needs to come back as one object.
 
-![The ResultSetExtractor functional interface, showing its single extractData(ResultSet) method](images/lesson37-resultsetextractor-interface.png)
+![The ResultSetExtractor functional interface, showing its single extractData(ResultSet) method](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/09-jdbc/06-jdbctemplate-lab-demo/images/lesson37-resultsetextractor-interface.png)
 
 `ResultSetExtractor` is a functional interface with a single method that takes the `ResultSet` and returns the fully mapped object — in this case an `Account`. As with the row mapper before it, the mapping logic already exists in this class as `mapAccount`, so a method reference is enough:
 
@@ -116,7 +116,7 @@ Account account = jdbcTemplate.query(sql, this::mapAccount, creditCardNumber);
 
 Note this uses `query`, not `queryForObject` — `ResultSetExtractor` is passed to `query`. Once this is wired up, the method's old manual JDBC code can be removed and the result returned directly. Re-running `JdbcAccountRepositoryTest` confirms the account is still mapped correctly.
 
-![Mid-refactor view of a repository: the old plain-JDBC block still visible alongside the new jdbcTemplate.query call using a row-mapper lambda](images/lesson37-refactoring-to-jdbctemplate.png)
+![Mid-refactor view of a repository: the old plain-JDBC block still visible alongside the new jdbcTemplate.query call using a row-mapper lambda](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/09-jdbc/06-jdbctemplate-lab-demo/images/lesson37-refactoring-to-jdbctemplate.png)
 
 ## To-dos 8–10 (optional): Injecting `JdbcTemplate` directly
 

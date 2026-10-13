@@ -124,7 +124,7 @@ Calling `setCacheSize(2500)` on the `cacheA` bean should print something like `I
 
 Here's the full picture of what happens:
 
-![How Aspects are Applied](images/lesson25-how-aspects-are-applied.png)
+![How Aspects are Applied](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/07-aop/02-what-aop-core-concepts/images/lesson25-how-aspects-are-applied.png)
 
 1. Spring creates a proxy during initialization, weaving together the aspect and the target.
 2. The proxy implements the same interface(s) as the target — here, `Cache` — so it behaves like a `Cache` from the caller's point of view. (Since `SimpleCache` implements an interface, this is a JDK proxy — see the "Use and Destroy Phases" lesson.)

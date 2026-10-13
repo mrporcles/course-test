@@ -21,7 +21,7 @@ Worth noting: these are not Spring-specific annotations. They're defined by **JS
 
 `@PostConstruct` runs during the initialization phase, specifically **right after all dependency injection has completed** for that bean.
 
-![@PostConstruct: called after setter injections are performed](images/lesson17-postconstruct-order.png)
+![@PostConstruct: called after setter injections are performed](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/05-annotations-component-scanning/03-bean-construction-and-destruction/images/lesson17-postconstruct-order.png)
 
 Consider a `JdbcAccountRepository` that needs to populate an internal cache using a `DataSource` — but that `DataSource` is supplied via setter injection, not the constructor:
 
@@ -77,7 +77,7 @@ This gives you the same two lifecycle hooks — just declared where you configur
 
 `@PreDestroy` callbacks only fire once `ConfigurableApplicationContext.close()` runs — either because you call it explicitly, or because Spring arranges for it to happen automatically.
 
-![Using a JVM shutdown hook](images/lesson17-jvm-shutdown-hook.png)
+![Using a JVM shutdown hook](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/05-annotations-component-scanning/03-bean-construction-and-destruction/images/lesson17-jvm-shutdown-hook.png)
 
 If you start your application with `SpringApplication.run(...)`, Spring registers a **JVM shutdown hook** for you automatically:
 

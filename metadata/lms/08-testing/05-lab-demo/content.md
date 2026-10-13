@@ -20,7 +20,7 @@ The starting test class has a `@BeforeEach` method that builds the application c
 
 Running the test at this point is expected to fail, and it does: a red bar, caused by a `NullPointerException` when the test tries to use `rewardNetwork`.
 
-![Test failing with a NullPointerException before @Autowired is added](images/lesson32-test-failure-before-autowired.png)
+![Test failing with a NullPointerException before @Autowired is added](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/08-testing/05-lab-demo/images/lesson32-test-failure-before-autowired.png)
 
 The reason is straightforward: the application context is now being created automatically, but nothing is injecting `rewardNetwork` into the test. The fix is to annotate the field with `@Autowired`. Once that's in place and the test reruns, it passes — the context is created, `RewardNetwork` is retrieved from it, and it's made available inside the test automatically.
 
@@ -30,7 +30,7 @@ The project has stub repository classes (used as fakes) living in `rewards.inter
 
 Running the test now is expected to fail again, and this to-do asks you to understand exactly why. The failure this time is a `NoUniqueBeanDefinitionException`:
 
-![NoUniqueBeanDefinitionException: two matching beans found for AccountRepository](images/lesson32-ambiguous-bean-error.png)
+![NoUniqueBeanDefinitionException: two matching beans found for AccountRepository](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/08-testing/05-lab-demo/images/lesson32-ambiguous-bean-error.png)
 
 ```
 No qualifying bean of type 'rewards.internal.account.AccountRepository' available:
@@ -70,7 +70,7 @@ A second configuration class, `TestInfrastructureJndiConfig`, defines its own `D
 
 The last to-do experiments with a different way of supplying `@SpringJUnitConfig`'s configuration. Instead of pointing at the external `TestInfrastructureConfig` class (which in turn imports the local, JNDI, and reward configuration classes), the same configuration is recreated as a `static` inner class directly inside the test class.
 
-![Final test class with @SpringJUnitConfig, @ActiveProfiles("stub"), and the project's profile-based repositories](images/lesson32-activeprofiles-stub-test-class.png)
+![Final test class with @SpringJUnitConfig, @ActiveProfiles("stub"), and the project's profile-based repositories](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/08-testing/05-lab-demo/images/lesson32-activeprofiles-stub-test-class.png)
 
 When `@SpringJUnitConfig` is given no explicit `classes` attribute, the TestContext Framework looks for a static inner configuration class inside the test class itself and uses that as the entry point instead. Once the inner class is in place and the external reference is removed, rerunning the test produces the same green bar as before, using the same active profiles — confirming the two approaches are functionally equivalent.
 

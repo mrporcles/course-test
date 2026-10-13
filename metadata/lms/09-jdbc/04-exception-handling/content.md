@@ -38,7 +38,7 @@ Spring's answer is the **`DataAccessException`** hierarchy:
 
 The clearest way to see this translation is with a concrete example. Suppose the SQL statement `SELECT iddd FROM T_ACCOUNT` runs against the database — note the typo: `iddd` isn't a real column.
 
-![Plain JDBC surfaces a generic SQLException; Spring maps it into a specific, meaningful exception](images/lesson36-badsqlgrammarexception-example.png)
+![Plain JDBC surfaces a generic SQLException; Spring maps it into a specific, meaningful exception](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/09-jdbc/04-exception-handling/images/lesson36-badsqlgrammarexception-example.png)
 
 With **plain JDBC**, this fails with a `java.sql.SQLException`, carrying the message `Column not found: IDDD in statement` and an `errorCode` of `-28`. That error code is specific to the database vendor in use here — it's not documented or meaningful to your application code at all.
 
@@ -50,7 +50,7 @@ This mapping isn't guesswork — Spring maintains an XML file (`sql-error-codes.
 
 `DataAccessException` sits at the top of this hierarchy and extends from `RuntimeException`, which is exactly what makes it unchecked. Below it are a range of child exceptions, each representing a specific category of problem in the data access layer:
 
-![DataAccessException hierarchy: BadSqlGrammarException, DataIntegrityViolationException, OptimisticLockingFailureException, and more](images/lesson36-data-access-exception-hierarchy.png)
+![DataAccessException hierarchy: BadSqlGrammarException, DataIntegrityViolationException, OptimisticLockingFailureException, and more](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/09-jdbc/04-exception-handling/images/lesson36-data-access-exception-hierarchy.png)
 
 - **`DataAccessResourceFailureException`** — something went wrong acquiring the underlying resource (e.g., the connection itself)
 - **`CleanupFailureDataAccessException`** — a failure occurred while cleaning up after an operation

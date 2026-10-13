@@ -71,7 +71,7 @@ This defines `rewardAccountFor` as transactional — but remember, annotations b
 
 Here's the mechanism in full:
 
-![Declarative Transaction Management: the target service is wrapped in a Spring proxy, which uses a Spring TransactionInterceptor to begin and commit around calls to the target](images/lesson39-declarative-transaction-management-proxy.png)
+![Declarative Transaction Management: the target service is wrapped in a Spring proxy, which uses a Spring TransactionInterceptor to begin and commit around calls to the target](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/10-transactions/02-management/images/lesson39-declarative-transaction-management-proxy.png)
 
 Your actual implementation — say, `TransferServiceImpl` — gets wrapped inside a **Spring proxy** at runtime, built by a bean post-processor. The caller is injected with a reference to that *proxy*, not the raw target object. Inside the proxy sits a **Spring `TransactionInterceptor`**, using an "around" advice — meaning it runs code both before and after the actual business logic.
 

@@ -16,7 +16,7 @@ In the AOP quick start (the "Core AOP Concepts and Quick Start" lesson), you alr
 
 With before advice, the proxy delegates to your advice *before* delegating to the target.
 
-![Before advice sequence diagram](images/lesson27-before-advice-diagram.png)
+![Before advice sequence diagram](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/07-aop/04-advice-types/images/lesson27-before-advice-diagram.png)
 
 Because your advice code runs first, you can do anything you want ahead of the business logic — including preventing the target from ever running. If your advice throws an exception, the target is never called. That makes before advice a natural fit for security checks: throw an exception if the caller doesn't have the rights to invoke that method, and the target method is skipped entirely.
 
@@ -42,7 +42,7 @@ The class is annotated with `@Aspect` (an AspectJ annotation, not a Spring one) 
 
 The next advice type runs the other way around: the proxy delegates to the target *first*, and only calls your advice afterward — and only if the target actually returns successfully (no exception).
 
-![After returning advice sequence diagram](images/lesson27-after-returning-diagram.png)
+![After returning advice sequence diagram](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/07-aop/04-advice-types/images/lesson27-after-returning-diagram.png)
 
 Because the advice runs after a successful return, it has access to more information than before advice does: not just the join point's context, but also the value the target returned.
 
@@ -63,7 +63,7 @@ Notice there are now two arguments on the annotation. `value` defines the pointc
 
 As the name suggests, this advice type only executes if the target throws an exception. The proxy delegates to the target; if the target throws, the proxy delegates to the advice, handing it the exception that was thrown.
 
-![After throwing advice sequence diagram](images/lesson27-after-throwing-diagram.png)
+![After throwing advice sequence diagram](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/07-aop/04-advice-types/images/lesson27-after-throwing-diagram.png)
 
 This is useful for implementing exception handling — for example, sending an email every time a repository class throws a `DataAccessException`:
 
@@ -114,7 +114,7 @@ The `@After` annotation marks this as after advice, and the pointcut matches any
 
 The last advice type is around advice — and it's a different shape entirely from the other four. With before, after returning, after throwing, and after, the **proxy** is always responsible for delegating to both the advice and the target. With around advice, the proxy only delegates to your advice — and *you* are responsible for delegating to the target yourself, using a `proceed()` method.
 
-![Around advice sequence diagram](images/lesson27-around-diagram.png)
+![Around advice sequence diagram](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/07-aop/04-advice-types/images/lesson27-around-diagram.png)
 
 Because you control that `proceed()` call, around advice can run code both before and after the target — which technically means you could implement any of the other four advice types using nothing but `@Around`. But that flexibility comes with a real risk: if you forget to call `proceed()`, the target method is never executed at all.
 

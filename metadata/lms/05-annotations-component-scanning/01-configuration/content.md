@@ -14,11 +14,11 @@ Every configuration technique you've used so far has been **explicit**: a `@Conf
 
 Annotation-based configuration flips that around. Instead of describing your beans from the outside, you describe them from the inside — directly on the class itself.
 
-![Before: explicit bean definition](images/lesson15-before-explicit-bean-definition.png)
+![Before: explicit bean definition](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/05-annotations-component-scanning/01-configuration/images/lesson15-before-explicit-bean-definition.png)
 
 In the "before" picture, a `@Configuration` class explicitly declares a `TransferService` bean and wires an `AccountRepository` into it via a `@Bean` method.
 
-![After: implicit configuration](images/lesson15-after-implicit-configuration.png)
+![After: implicit configuration](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/05-annotations-component-scanning/01-configuration/images/lesson15-after-implicit-configuration.png)
 
 In the "after" picture, that same wiring moves onto the `TransferServiceImpl` class itself: it's annotated directly with `@Component`, so Spring knows to manage it as a bean. The configuration class shrinks down to essentially nothing — `AnnotationConfig` no longer needs any bean definitions at all.
 
@@ -38,7 +38,7 @@ With Java configuration, dependency injection happens through method parameters 
 
 **Field injection.** You can also autowire a field directly. This lesson discourages it: annotations are processed by the framework, so outside of a running Spring context — in a plain unit test, for example — that injection never happens. You'd be forced to reach for reflection or mocking just to supply the dependency. Constructor or method injection avoids that problem entirely.
 
-![Usage of @Autowired: constructor, method, and field injection](images/lesson15-usage-of-autowired.png)
+![Usage of @Autowired: constructor, method, and field injection](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/05-annotations-component-scanning/01-configuration/images/lesson15-usage-of-autowired.png)
 
 ## Required or optional dependencies
 
@@ -107,7 +107,7 @@ Beyond wiring beans together, `@Autowired` combined with `@Value` lets you pull 
 
 By default, every bean is created eagerly, right when the application context starts — deliberately, so misconfiguration surfaces immediately as a fail-fast startup error rather than a mysterious runtime failure later. Occasionally, though, a bean is expensive to initialize, or depends on something that isn't ready yet, and you'd rather defer its creation until the first time it's actually needed. `@Lazy` does exactly that.
 
-![Delayed initialization with @Lazy](images/lesson15-delayed-initialization.png)
+![Delayed initialization with @Lazy](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/05-annotations-component-scanning/01-configuration/images/lesson15-delayed-initialization.png)
 
 Use it sparingly — this is a commonly misused annotation, and most beans genuinely are not lazy. Reach for it only when you have a specific reason, such as a bean whose dependency (like a mail server connection) might not be available the instant the process starts.
 
@@ -115,7 +115,7 @@ Use it sparingly — this is a commonly misused annotation, and most beans genui
 
 Laid out next to each other, annotation-based and Java-based configuration offer essentially the same set of options:
 
-![Annotation syntax vs. Java configuration](images/lesson15-annotations-syntax-vs-java-config.png)
+![Annotation syntax vs. Java configuration](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/05-annotations-component-scanning/01-configuration/images/lesson15-annotations-syntax-vs-java-config.png)
 
 - Marking a class a component (`@Component`) vs. writing a `@Bean` method
 - `@Scope` works identically on both styles

@@ -24,7 +24,7 @@ If you retrieve a bean and it's exactly your own component, nothing special happ
 
 But sometimes what you retrieve from the context isn't your object at all — it's a **proxy** standing in for it.
 
-![Case II: Your Bean is a Proxy](images/lesson22-bean-is-a-proxy.png)
+![Case II: Your Bean is a Proxy](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/06-inside-spring-container/03-use-destroy-phases/images/lesson22-bean-is-a-proxy.png)
 
 Spring reaches for a proxy whenever it needs to add extra behavior around your component transparently — transactions, security, and exception handling are the classic examples. This proxy creation happens during the initialization phase you already saw in the "Initialization Phase (Part 2)" lesson: it's done by one of the `BeanPostProcessor`s. Recall that a `BeanPostProcessor` receives the original bean and can return something else entirely — in this case, the post-processor inspects your bean, decides it needs a proxy, creates one, and hands *that* back to the application context instead. From then on, everything that looks up that bean gets the proxy.
 
@@ -32,7 +32,7 @@ Spring reaches for a proxy whenever it needs to add extra behavior around your c
 
 Here's what that looks like end to end for a transactional method:
 
-![Proxy Power Example: Transactions](images/lesson22-proxy-power-example-transactions.png)
+![Proxy Power Example: Transactions](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/06-inside-spring-container/03-use-destroy-phases/images/lesson22-proxy-power-example-transactions.png)
 
 1. The caller calls `transfer("$50", "1", "2")` — but they're calling the proxy, not `TransferServiceImpl` directly.
 2. The proxy routes the call through a `SpringTransactionInterceptor`.
@@ -47,12 +47,12 @@ Transactional behavior is added *around* the target — your bean itself has no 
 
 Spring supports two different mechanisms for building these proxies, and which one it uses depends entirely on how your class is designed.
 
-![Kinds of Proxies](images/lesson22-kinds-of-proxies.png)
+![Kinds of Proxies](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/06-inside-spring-container/03-use-destroy-phases/images/lesson22-kinds-of-proxies.png)
 
 - **JDK proxies** (also called *dynamic proxies*) are built into the JDK itself, but they *require* an interface — the proxy is generated to implement the same interface(s) as your class. If your class implements an interface, Spring will use a JDK proxy.
 - **CGLIB proxies** are not built into the JDK; the library ships inside Spring's jars instead. CGLIB proxies work by extending your class, so no interface is required — which makes them the fallback when your class doesn't implement one. They cannot be applied to `final` classes or methods, since extension isn't possible there.
 
-![JDK vs CGLIB Proxies](images/lesson22-jdk-vs-cglib-proxies.png)
+![JDK vs CGLIB Proxies](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/06-inside-spring-container/03-use-destroy-phases/images/lesson22-jdk-vs-cglib-proxies.png)
 
 Notice the difference in relationship: a JDK proxy *implements* the same interface as your target (`TransferService`), while a CGLIB proxy *extends* your concrete class (`TransferServiceImpl`) directly. Either way, the proxy wraps "extra logic" around a reference to your original object, called the **target**.
 

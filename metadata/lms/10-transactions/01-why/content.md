@@ -28,7 +28,7 @@ In short, a transaction exists to enable concurrent access to a shared resource 
 
 The course's running example, the `RewardNetwork` component, has a method called `rewardAccountFor(Dining)` that's a good illustration of a real unit of work. Calling it triggers a sequence of operations spread across several repositories:
 
-![The rewardAccountFor(Dining) method represents a unit-of-work that should be atomic, spanning selects, updates, and an insert across multiple repositories](images/lesson38-rewardnetwork-sequence-diagram.png)
+![The rewardAccountFor(Dining) method represents a unit-of-work that should be atomic, spanning selects, updates, and an insert across multiple repositories](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/10-transactions/01-why/images/lesson38-rewardnetwork-sequence-diagram.png)
 
 - `findByCreditCard` on the account repository (a `SELECT`)
 - `findByMerchantNumber` on the restaurant repository (a `SELECT`)
@@ -42,7 +42,7 @@ That's a `SELECT`, another `SELECT`, an `UPDATE`, and an `INSERT`, all logically
 
 Without a transaction, every single repository method is independent. Each one acquires its own connection from the data source, does its work, and immediately releases that connection back — with no relationship between one method's connection and the next.
 
-![Running non-transactionally: each repository call gets and closes its own connection independently](images/lesson38-running-non-transactionally.png)
+![Running non-transactionally: each repository call gets and closes its own connection independently](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/10-transactions/01-why/images/lesson38-running-non-transactionally.png)
 
 This shows up clearly across the four operations in the example: `findByCreditCard` gets `connection-1` and closes it; `findByMerchantNumber` gets `connection-2` and closes it; `updateBeneficiaries` gets `connection-3`; `confirmReward` gets `connection-4`. Four separate connections for what should conceptually be a single operation.
 
@@ -52,7 +52,7 @@ This is inefficient — repeatedly acquiring and releasing connections has real 
 
 That non-atomicity has a very real consequence: a **partial failure**. Suppose an account is being rewarded, and the beneficiaries are updated successfully — but the call to confirm the reward then fails.
 
-![Partial failure: beneficiaries are updated successfully, but confirming the reward fails, leaving no record of the reward](images/lesson38-partial-failure-example.png)
+![Partial failure: beneficiaries are updated successfully, but confirming the reward fails, leaving no record of the reward](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/10-transactions/01-why/images/lesson38-partial-failure-example.png)
 
 The beneficiaries have already been updated and that change is already committed — there's no going back on it. But because the reward confirmation failed, there is now no record that the reward ever happened. The system is left in an inconsistent, half-finished state, and there's no way to know, after the fact, that anything went wrong. This is precisely the scenario ACID's atomicity guarantee exists to prevent, and it's exactly what happens when a multi-step operation isn't wrapped in a transaction.
 
@@ -66,7 +66,7 @@ The fix is to run the whole operation within a single transaction, reusing one c
 
 Here's the same sequence again, but running inside a transaction:
 
-![Running in a transaction: a single connection is acquired at the start, reused for every operation, and only closed at the end](images/lesson38-running-in-a-transaction.png)
+![Running in a transaction: a single connection is acquired at the start, reused for every operation, and only closed at the end](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/10-transactions/01-why/images/lesson38-running-in-a-transaction.png)
 
 The connection is acquired once, at the very start — `connection-1` — and every subsequent call (`findByCreditCard`, `findByMerchantNumber`, `updateBeneficiaries`, `confirmReward`) reuses that exact same connection. The connection is only closed once, at the very end, after every step has completed. Because it's all one connection and one transaction, the database can guarantee the whole thing behaves as a single atomic operation: either every one of those `SELECT`, `UPDATE`, and `INSERT` statements takes effect, or none of them do.
 

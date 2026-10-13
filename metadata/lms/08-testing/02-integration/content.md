@@ -18,7 +18,7 @@ There are many kinds of tests — unit, integration, performance, end-to-end, an
 
 ## The same business logic, different infrastructure
 
-![Integration Test Example: production mode vs. integration test, side by side](images/lesson30-integration-test-example.png)
+![Integration Test Example: production mode vs. integration test, side by side](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/08-testing/02-integration/images/lesson30-integration-test-example.png)
 
 In production, your application wires together `TransferServiceImpl` and `JpaAccountRepository`, backed by the production database. In an integration test, you build a test class — `TransferServiceTests` — that wires together the *same* `TransferServiceImpl` and `JpaAccountRepository`, but backed by a test database instead. The business logic under test doesn't change at all; only the infrastructure underneath it does.
 

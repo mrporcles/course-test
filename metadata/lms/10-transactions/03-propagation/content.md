@@ -46,7 +46,7 @@ public void update(List<Account> accs) { /* ... */ }
 
 `REQUIRED` is the propagation level you get automatically if you don't specify one. Its rule is simple: **run within a transaction, using an existing one if there is one, or creating a new one if there isn't.** Spring doesn't care whether a transaction already exists — it just guarantees that one exists by the time your code runs.
 
-![REQUIRED: execute within a current transaction, create a new one if none exists](images/lesson40-required-diagram.png)
+![REQUIRED: execute within a current transaction, create a new one if none exists](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/10-transactions/03-propagation/images/lesson40-required-diagram.png)
 
 ```java
 @Transactional(propagation = Propagation.REQUIRED)
@@ -60,7 +60,7 @@ This is why `REQUIRED` is the sensible default: your service layer typically cal
 
 Sometimes you want the opposite: a method that always runs in its *own* transaction, regardless of what's already happening around it. That's `REQUIRES_NEW`.
 
-![REQUIRES_NEW: create a new transaction, suspending the current one if one exists](images/lesson40-requires-new-diagram.png)
+![REQUIRES_NEW: create a new transaction, suspending the current one if one exists](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/10-transactions/03-propagation/images/lesson40-requires-new-diagram.png)
 
 ```java
 @Transactional(propagation = Propagation.REQUIRES_NEW)

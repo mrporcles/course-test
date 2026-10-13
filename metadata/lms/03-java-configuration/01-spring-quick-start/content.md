@@ -40,7 +40,7 @@ The container needs to be told how to construct these POJOs, what their dependen
 
 ## How the DI container works, conceptually
 
-![How Spring DI Container Works](images/lesson7-how-di-container-works.png)
+![How Spring DI Container Works](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/03-java-configuration/01-spring-quick-start/images/lesson7-how-di-container-works.png)
 
 Your application classes (POJOs) don't wire themselves together. Instead, you supply **configuration metadata**, and the Spring DI container — the `ApplicationContext` — reads that metadata and uses it to construct and wire up your objects. With that metadata in place, the application context eagerly initializes every bean it knows about, so that by the time it's finished starting up, you have a fully configured system ready to use.
 
@@ -157,7 +157,7 @@ TransferService ts3 = context.getBean(TransferService.class);
 
 When `SpringApplication.run(...)` builds the context, it initializes every component in the right order, based on their dependencies:
 
-![Inside the Spring Application Context](images/lesson7-inside-application-context.png)
+![Inside the Spring Application Context](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/03-java-configuration/01-spring-quick-start/images/lesson7-inside-application-context.png)
 
 Working through this example: `dataSource` has no dependencies, so it's created first. `accountRepository` depends on `dataSource`, which already exists, so it's created next. Finally, `transferService` depends on `accountRepository`, which is now available, so it's created last. Every one of these beans is given a unique id or name (matching the `@Bean` method's name by convention), so from outside the context you can retrieve any of them directly — `getBean("transferService")`, `getBean("accountRepository")`, or `getBean("dataSource")` — and each comes back fully configured and ready to use.
 

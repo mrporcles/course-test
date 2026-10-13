@@ -26,7 +26,7 @@ A few more reasons for its staying power:
 
 Spring has consistently driven innovation and adapted as the ecosystem around it changed:
 
-![Spring excels at being adaptable to change](images/lesson4-adaptable-to-change-timeline.png)
+![Spring excels at being adaptable to change](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/02-overview/03-history/images/lesson4-adaptable-to-change-timeline.png)
 
 - Early on, it integrated with open source projects like Hibernate for persistence, or Quartz for scheduling, and with different templating technologies for server-side rendering
 - It created independent projects for entire domains, like Spring Security, Spring Batch, and Spring Integration

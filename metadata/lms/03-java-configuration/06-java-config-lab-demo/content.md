@@ -49,7 +49,7 @@ Worth noting: when a class has a single constructor, Spring doesn't require the 
 
 ## To-do 4: implement the bean methods
 
-![RewardsConfig with @Bean methods being implemented](images/lesson11-rewardsconfig-bean-methods.png)
+![RewardsConfig with @Bean methods being implemented](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/03-java-configuration/06-java-config-lab-demo/images/lesson11-rewardsconfig-bean-methods.png)
 
 Now the bean methods from to-do 2 get real bodies. Looking at the actual repository implementation classes (inside `rewards.internal`, under the account and restaurant repository packages), each one exposes a `setDataSource` setter method that needs to be called to wire in the data source:
 
@@ -142,7 +142,7 @@ The next to-do checks that a test method exists, renames it to `testRewardForDin
 
 ## To-do 11: fill in the real test logic
 
-![RewardNetworkImplTests with the copied test logic, passing](images/lesson11-rewardnetwork-test-passing.png)
+![RewardNetworkImplTests with the copied test logic, passing](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/03-java-configuration/06-java-config-lab-demo/images/lesson11-rewardnetwork-test-passing.png)
 
 The final to-do points to an existing class, `RewardNetworkImplTests`, which tests the same reward network logic but *without* Spring — it manually creates stub repositories and constructs the reward network by hand. The job here is to copy that test's logic into the new Spring-backed test class.
 

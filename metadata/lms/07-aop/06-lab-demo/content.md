@@ -9,7 +9,7 @@ This lesson walks through a hands-on lab that puts the AOP lessons into practice
 
 ## The scenario
 
-![The lab's landing page: Introducing Aspect Oriented Programming Lab](images/lesson28-lab-intro.png)
+![The lab's landing page: Introducing Aspect Oriented Programming Lab](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/07-aop/06-lab-demo/images/lesson28-lab-intro.png)
 
 Now that you know how to configure the application context, it's time to add behavior on top of your business logic. This lab uses Spring AOP to fulfill two requirements against the rewards application's repository classes:
 
@@ -97,7 +97,7 @@ public Object monitor(ProceedingJoinPoint repositoryMethod) throws Throwable {
 
 Calling `repositoryMethod.proceed()` inside the `try` block is what actually delegates to the target — its return value is passed straight back to the proxy as this advice method's own return value. The `finally` block stops the monitor and logs the timing message regardless of whether the target succeeded or threw, which also means the timer is stopped even on failure.
 
-![The completed LoggingAspect class, showing the @Before advice and the @Around advice side by side](images/lesson28-logging-aspect-code.png)
+![The completed LoggingAspect class, showing the @Before advice and the @Around advice side by side](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/07-aop/06-lab-demo/images/lesson28-logging-aspect-code.png)
 
 ## To-do 9: Update the test's expected match count and re-verify
 

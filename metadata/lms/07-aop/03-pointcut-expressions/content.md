@@ -40,7 +40,7 @@ Expressions use exactly two wildcards:
 
 ## Reading a full example
 
-![Example Expression](images/lesson26-example-expression.png)
+![Example Expression](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/07-aop/03-pointcut-expressions/images/lesson26-example-expression.png)
 
 ```
 execution(* rewards.restaurant.*Service.find*(..))

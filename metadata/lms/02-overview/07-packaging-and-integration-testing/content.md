@@ -59,7 +59,7 @@ Earlier in the course you saw how to bootstrap an application context in a test 
 
 Swapping the annotation for `@SpringBootTest` changes that:
 
-![Test: @SpringBootTest](images/lesson6-springboottest-example.png)
+![Test: @SpringBootTest](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/02-overview/07-packaging-and-integration-testing/images/lesson6-springboottest-example.png)
 
 ```java
 @SpringBootTest(classes = Application.class)

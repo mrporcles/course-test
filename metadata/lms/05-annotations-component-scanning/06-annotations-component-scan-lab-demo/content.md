@@ -12,7 +12,7 @@ This lab picks up exactly where the previous lab on Java configuration left off:
 
 One component in particular needs more than a straightforward annotation swap: `JdbcRestaurantRepository` has to populate a restaurant cache during initialization and clear it during destruction. Working out how to trigger that at the right moment in the bean lifecycle — using the annotations from the "Adding Startup and Shutdown Behaviors" and "Annotation-based Configuration" lessons — is the throughline of the lab.
 
-![JdbcRestaurantRepository lifecycle diagram: init, use, destroy](images/lesson19-jdbcrestaurantrepository-lifecycle-diagram.png)
+![JdbcRestaurantRepository lifecycle diagram: init, use, destroy](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/05-annotations-component-scanning/06-annotations-component-scan-lab-demo/images/lesson19-jdbcrestaurantrepository-lifecycle-diagram.png)
 
 The lab's own sequence diagram lays out the shape of the problem: during **INIT**, Spring creates the repository, calls `setDataSource(DataSource)`, and then `populateRestaurantCache()` needs to run. During **USE**, methods like `findByMerchantNumber(String)` read from that cache via `queryRestaurantCache(String)`. During **DESTROY**, `clearRestaurantCache()` needs to run before the bean goes away.
 
@@ -28,7 +28,7 @@ Next, every `@Bean` method in the configuration class gets deleted, along with t
 
 `RewardNetworkImpl` sits in the service layer, so it gets annotated `@Service` — one of the stereotype annotations from the "Stereotype and Meta Annotations" lesson — to make it discoverable by component scanning.
 
-![RewardNetworkImpl annotated with @Service](images/lesson19-rewardnetworkimpl-service-annotation.png)
+![RewardNetworkImpl annotated with @Service](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/05-annotations-component-scanning/06-annotations-component-scan-lab-demo/images/lesson19-rewardnetworkimpl-service-annotation.png)
 
 `RewardNetworkImpl` depends on an `AccountRepository`, a `RestaurantRepository`, and a `RewardRepository`, all supplied through a single constructor. Since there's only one constructor, `@Autowired` isn't required here — Spring uses it automatically, exactly as covered in the "Configuration Choices" lesson.
 

@@ -95,7 +95,14 @@ else:
 for md in glob.glob(os.path.join(ROOT, "**", "*.md"), recursive=True):
     with open(md) as f:
         for link in re.findall(r"!\[[^\]]*\]\(([^)\s]+)", f.read()):
-            if not link.startswith(("http://", "https://")) and not os.path.exists(os.path.join(os.path.dirname(md), link)):
+            RAW = "https://raw.githubusercontent.com/mrporcles/course-test/main/"
+            if link.startswith(RAW):
+                local = os.path.join(ROOT, "..", "..", link[len(RAW):])
+            elif link.startswith(("http://", "https://")):
+                continue
+            else:
+                local = os.path.join(os.path.dirname(md), link)
+            if not os.path.exists(local):
                 err(md, f"broken image link '{link}'")
 
 if errors:

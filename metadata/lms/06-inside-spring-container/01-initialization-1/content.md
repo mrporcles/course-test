@@ -11,7 +11,7 @@ By the end of this lesson, you should be able to:
 
 Everything you've learned so far about beans — configuration styles, dependency injection, stereotype annotations, `@PostConstruct`/`@PreDestroy` — has been about *what* Spring creates and *how* it wires things together. This lesson starts looking at *when*, by opening up the container's actual lifecycle.
 
-![Container Lifecycle: Initialization, Usage, Destruction](images/lesson20-container-lifecycle.png)
+![Container Lifecycle: Initialization, Usage, Destruction](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/06-inside-spring-container/01-initialization-1/images/lesson20-container-lifecycle.png)
 
 The Spring bean container runs through three distinct phases:
 
@@ -25,7 +25,7 @@ This lesson (and the next) zooms into the initialization phase specifically, sin
 
 Initialization happens when you call `SpringApplication.run(...)`. By the time that call returns, you have a fully configured application context — but getting there involves two distinct steps:
 
-![Bean Initialization Steps](images/lesson20-bean-initialization-steps.png)
+![Bean Initialization Steps](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/06-inside-spring-container/01-initialization-1/images/lesson20-bean-initialization-steps.png)
 
 - **Step A: Load & Process Bean Definitions** — gather all the information about what needs to exist in the application context. Nothing is actually created yet; this step only produces *definitions*, kept in memory.
 - **Step B: Create and Initialize Beans** — for each bean, find or create its dependencies, instantiate it, perform setter injection, and run it through bean post-processors (which, along with initializers, are covered in the next lesson).
@@ -41,7 +41,7 @@ Step A itself breaks down into two things happening in sequence:
 
 An `ApplicationContext` — the object you get back from `SpringApplication.run(...)` — *is* a `BeanFactory`; it extends it. So this `BeanFactory` is effectively a map: bean ID to bean definition, nothing more. No instances exist yet at this point, only the definitions describing what should eventually be created.
 
-![Load Bean Definitions: from AppConfig.java to the BeanFactory](images/lesson20-load-bean-definitions-example.png)
+![Load Bean Definitions: from AppConfig.java to the BeanFactory](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/06-inside-spring-container/01-initialization-1/images/lesson20-load-bean-definitions-example.png)
 
 Concretely: given an `AppConfig.java` with `@Bean` methods for `transferService()` and `accountRepository()`, Spring parses both method definitions and stores an entry for each — `transferService` and `accountRepository` — inside the `BeanFactory`. If your configuration is split across multiple files or classes, every one of them gets parsed the same way, but all their definitions land in the very same `BeanFactory` — you still end up with exactly one application context, no matter how many configuration classes contributed to it.
 
@@ -63,7 +63,7 @@ You're handed the entire `BeanFactory`, definitions and all, and can modify any 
 
 The most common example of a `BeanFactoryPostProcessor` you've already been relying on without necessarily knowing it: `PropertySourcesPlaceholderConfigurer`. Recall `@Value` and `${...}` placeholder syntax from earlier lessons.
 
-![BeanFactoryPostProcessor's most common example: resolving @Value placeholders](images/lesson20-beanfactorypostprocessor-common-example.png)
+![BeanFactoryPostProcessor's most common example: resolving @Value placeholders](https://raw.githubusercontent.com/mrporcles/course-test/main/metadata/lms/06-inside-spring-container/01-initialization-1/images/lesson20-beanfactorypostprocessor-common-example.png)
 
 ```java
 @Configuration
